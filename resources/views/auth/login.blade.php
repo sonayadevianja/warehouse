@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-=======
     <title>Login Rizal Salsa Collection</title>
     <link rel="stylesheet" type="text/css" href="login.css">
->>>>>>> a76de5fbb80df6de1f8c8e8f318c20d812e6b2ab
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 </head>
@@ -102,11 +97,6 @@
               </form>
             </div>
 
-<<<<<<< HEAD
-          </div>
-        </div>
-      </div>
-=======
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">
                 {{ __('Login') }}
@@ -129,7 +119,6 @@
       </div>
     </div>
   </div>
->>>>>>> a76de5fbb80df6de1f8c8e8f318c20d812e6b2ab
 
 </body>
 </html>
