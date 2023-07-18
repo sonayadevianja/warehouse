@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -30,6 +31,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <a href="home.html" class="nav-item nav-link active">Home</a>
+                        <a href="listbarang.html" class="nav-item nav-link">Barang</a>
+                        <a href="history.html" class="nav-item nav-link">History</a>
+
 
                     </ul>
 
