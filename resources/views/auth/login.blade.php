@@ -69,23 +69,6 @@
                 </div>
               </form>
             </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">
-                {{ __('Login') }}
-                </button>
-
-                @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-                 @endif
-            </div>
-
-            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-              Registered? <a href="{{ route('register')}}" class="text-dark fw-bold"> Create an
-                Account</a>
-            </div>
           </form>
         </div>
 
