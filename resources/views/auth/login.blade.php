@@ -110,7 +110,7 @@
             </div>
 
             <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-              Registered? <a href="#" class="text-dark fw-bold"> Create an
+              Registered? <a href="{{ route('register')}}" class="text-dark fw-bold"> Create an
                 Account</a>
             </div>
           </form>
