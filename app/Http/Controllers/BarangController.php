@@ -11,28 +11,7 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'List Barang';
 
-        // RAW SQL QUERY
-        // $barangs = DB::select('
-        //     select *, barangs.id as barang_id
-        //     from barangs
-        //     left join positions on barangs.position_id = positions.id
-        // ');
-
-        // Query Builder
-        // $barangs = DB::table('barangs')
-        //     ->select('barangs.*', 'barangs.id as barang_id', 'positions.*')
-        //     ->leftJoin('positions', 'barangs.position_id', '=', 'positions.id')
-        //     ->get();
-
-        // Eloquent
-        $barang = Barang::all();
-
-        return view('barang.index', [
-            'pageTitle' => $pageTitle,
-            'barangs' => $barang
-        ]);
     }
 
     /**
