@@ -26,4 +26,10 @@ class HomeController extends Controller
         $pageTitle = 'Home';
         return view('home',['pageTitle' => $pageTitle]);
     }
+
+    public function barangmasuk()
+    {
+        $pageTitle = 'Barang Masuk';
+        return view('form_in',['pageTitle' => $pageTitle]);
+    }
 }

@@ -27,4 +27,5 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/barangmasuk', [App\Http\Controllers\HomeController::class, 'barangmasuk'])->name('Barang Masuk');
 
