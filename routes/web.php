@@ -24,8 +24,11 @@ Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::resource('barang', BarangController::class);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/barangmasuk', [App\Http\Controllers\HomeController::class, 'barangmasuk'])->name('Barang Masuk');
+
+Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
 

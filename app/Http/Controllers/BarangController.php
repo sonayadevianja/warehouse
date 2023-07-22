@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class BarangController extends Controller
 {
@@ -11,6 +12,8 @@ class BarangController extends Controller
      */
     public function index()
     {
+        $pageTitle = 'Barang List';
+        return view('barang.index', compact('pageTitle'));
 
     }
 
@@ -60,5 +63,18 @@ class BarangController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function getData(Request $request)
+    {
+        $barang = Barang::with('jenis');
+
+        if ($request->ajax()) {
+            return datatables()->of($barang)
+                ->addIndexColumn()
+                ->addColumn('actions', function($barang) {
+                    return view('barang.actions', compact('barang'));
+                })
+                ->toJson();
+        }
     }
 }

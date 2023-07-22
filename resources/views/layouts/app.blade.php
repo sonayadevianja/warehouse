@@ -31,8 +31,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <a href="home.html" class="nav-item nav-link active">Home</a>
-                        <a href="listbarang.html" class="nav-item nav-link">Barang</a>
+                        <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+                        <a href="{{ route('barang.index') }}" class="nav-item nav-link">Barang</a>
                         <a href="history.html" class="nav-item nav-link">History</a>
 
 
@@ -79,6 +79,7 @@
 
         <main class="py-4">
             @yield('content')
+            @stack('scripts')
         </main>
     </div>
 </body>
