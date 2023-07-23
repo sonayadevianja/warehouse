@@ -5,10 +5,20 @@
         <div class="col-lg-9 col-xl-10">
             <h4 class="mb-3">{{ $pageTitle }}</h4>
         </div>
-        <div class="col-lg-3 col-xl-2">
-            <div class="d-grid gap-2">
-                {{-- <a href="{{ route('barang.create') }}" class="btn btn-secondary">Input Barang</a> --}}
-            </div>
+        <div class="col-lg-3 col-xl-6">
+            <ul class="list-inline mb-0 float-end">
+                    <li class="list-inline-item">
+                        <a href="{{url('/barangmasuk')}}" class="btn btn-info">
+                            <i class="bi bi-plus-circle-fill m-1"></i>Tambah Barang
+                        </a>
+                    </li>
+                    <li class="list-inline-item">|</li>
+                    <li class="list-inline-item">
+                        <a href="{{ route('barang.create') }}" class="btn btn-dark">
+                            <i class="bi bi-plus-circle me-1"></i> Create Barang
+                        </a>
+                    </li>
+            </ul>
         </div>
     </div>
     <hr>

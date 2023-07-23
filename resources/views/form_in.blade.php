@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label" style="font-weight:bold;">TANGGAL MASUK</label>
-                            <input class="form-control " type="text" name="email" id="email" value="" placeholder="Masukkan tanggal">
+                            <input class="form-control " type="date" name="email" id="email" value="" placeholder="Masukkan tanggal">
 
                         </div>
                         <div class="col-md-6 mb-3">
@@ -39,7 +39,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6 d-grid">
-                            <a href="" class="btn btn-outline-dark btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Cancel</a>
+                            <a href="{{ route('barang.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Cancel</a>
                         </div>
                         <div class="col-md-6 d-grid">
                             <button type="submit" class="btn btn-lg mt-3" style="background-color: #876445;"><i class="bi-check-circle me-2"></i> Save</button>
