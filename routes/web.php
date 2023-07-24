@@ -29,6 +29,19 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/barangmasuk', [App\Http\Controllers\HomeController::class, 'barangmasuk'])->name('Barang Masuk');
+Route::get('/barangkeluar', [App\Http\Controllers\HomeController::class, 'barangkeluar'])->name('Barang Keluar');
 
 Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
+
+Route::get('/local-disk', function() {
+    Storage::disk('local')->put('local-example.txt', 'This is local example content');
+    return asset('storage/local-example.txt');
+});
+
+Route::get('/public-disk', function() {
+    Storage::disk('public')->put('public-example.txt', 'This is public example content');
+    return asset('storage/public-example.txt');
+});
+
+
 

@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Rizal Salsa Collection</title>
-    <link rel="stylesheet" type="text/css" href="login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
-</head>
-<body>
+@extends('layoutauth.app')
+@section('content')
     <div class="container">
         <div class="row">
           <div class="col-md-6 offset-md-3">
             <div class="card my-5">
-
+                {{-- <div class="card-header">{{ __('Login') }}</div> --}}
 
               <form class="card-body cardbody-color p-lg-5"  method="POST" action="{{ route('login') }}">
                 @csrf
@@ -52,17 +43,12 @@
 
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" style="background-color: #F1DEC9" class="btn btn-primary">
                     {{ __('Login') }}
                     </button>
 
                     @if (Route::has('password.request'))
-                </div>
-
-
-
-                <div id="forgotPass" class="form-text text-center mb-5 text-dark">
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                    <a class="btn btn-link"  href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
                     </a>
                      @endif
@@ -73,7 +59,6 @@
                 </div>
               </form>
       </div>
-
-
-</body>
-</html>
+    </div>
+  </div>
+@endsection
