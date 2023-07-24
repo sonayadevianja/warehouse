@@ -16,9 +16,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                    <label for="email" class="col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                    <div class="col-md-6">
+
+
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -26,13 +27,11 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
                 </div>
 
                 <div class="mb-3">
-                  <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                  <label for="password" class="col-form-label text-md-end">{{ __('Password') }}</label>
 
-                    <div class="col-md-6">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -41,24 +40,26 @@
                     @enderror
                 </div>
 
-
-                <div class="text-center">
-                    <button type="submit" style="background-color: #F1DEC9" class="btn btn-primary">
+                <div class="text-center"> <button type="submit" style="background-color: #F1DEC9" class="btn btn-primary">
                     {{ __('Login') }}
-                    </button>
+                </button></div>
 
+
+                <div id="forgotPass" class="form-text text-center mb-5 text-dark">
                     @if (Route::has('password.request'))
                     <a class="btn btn-link"  href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
-                    </a>
+                     </a>
                      @endif
                 </div>
+               
+
                     <div id="emailHelp" class="form-text text-center mb-5 text-dark">
                     Not Registered? <a href="{{ route('register') }}" class="text-dark fw-bold"> Create an
                     Account</a>
                 </div>
               </form>
-      </div>
-    </div>
-  </div>
+
+
+
 @endsection
