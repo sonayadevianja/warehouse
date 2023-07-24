@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-6 offset-md-3">
             <div class="card my-5">
-                <div class="card-header">{{ __('Login') }}</div>
+
 
               <form class="card-body cardbody-color p-lg-5"  method="POST" action="{{ route('login') }}">
                 @csrf
@@ -57,24 +57,23 @@
                     </button>
 
                     @if (Route::has('password.request'))
+                </div>
+
+
+
+                <div id="forgotPass" class="form-text text-center mb-5 text-dark">
                     <a class="btn btn-link" href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
                     </a>
                      @endif
                 </div>
-
-                <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-                  Registered? <a href="{{ route('register') }}" class="text-dark fw-bold"> Create an
+                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">
+                    Not Registered? <a href="{{ route('register') }}" class="text-dark fw-bold"> Create an
                     Account</a>
                 </div>
               </form>
-            </div>
-          </form>
-        </div>
-
       </div>
-    </div>
-  </div>
+
 
 </body>
 </html>

@@ -13,7 +13,6 @@
         <div class="row">
           <div class="col-md-6 offset-md-3">
             <div class="card my-5">
-                <div class="card-header">{{ __('Register') }}</div>
 
               <form class="card-body cardbody-color p-lg-5" method="POST" action="{{ route('register') }}">
                 @csrf
@@ -25,7 +24,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                    <label for="name" class="col-form-label text-md-end">{{ __('Name') }}</label>
 
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     @error('name')
@@ -36,9 +35,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                    <label for="email" class=" col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                            <div class="col-md-6">
+
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -47,12 +46,13 @@
                                     </span>
                                 @enderror
                             </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
-                    <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <label for="password" class=" col-form-label text-md-end">{{ __('Password') }}</label>
+
+
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                         @error('password')
@@ -61,22 +61,16 @@
                             </span>
                         @enderror
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="password-confirm" class=" col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                  </div>
                 <div class="text-center"><button type="submit" class="btn btn-primary">
                     {{ __('Register') }}
                 </button></div>
               </form>
-            </div>
-
-          </div>
-        </div>
-      </div>
 </body>
 </html>
