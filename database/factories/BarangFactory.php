@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Jenis;
+use App\Models\barangmasuk;
+use App\Models\barangkeluar;
 use Illuminate\Support\Str;
 
 /**
@@ -22,10 +24,10 @@ class BarangFactory extends Factory
             'nama_barang' => fake()->name(),
             'tanggal_produksi' => $this->faker->date($format='Y-m-d', $max='now'),
             'jenis_id'=> Jenis::factory(),
-            'tanggal_keluar' => $this->faker->date($format='Y-m-d', $max='now'),
-            'tanggal_masuk'=> $this->faker->date($format='Y-m-d', $max='now'),
-            'jumlah' => $this->faker->numberBetween(25, 50),
-            'keterangan' => fake()->sentence(),
+            'barangmasuk_id' => barangmasuk::factory(),
+            'barangkeluar_id'=> barangkeluar::factory(),
+            'stok' => $this->faker->numberBetween(25, 50),
+            'deskripsi' => fake()->sentence(),
         ];
     }
 }
