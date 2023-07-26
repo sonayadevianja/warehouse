@@ -5,19 +5,18 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Jenis;
+use App\Models\barangmasuk;
 
-class JenisSeeder extends Seeder
+class barangmasukSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('jenis')->insert([
+        DB::table('barangmasuks')->insert([
         ]);
 
-        Jenis::factory()->count(3)->create();
-
+        barangmasuk::factory()->count(3)->create();
     }
 }

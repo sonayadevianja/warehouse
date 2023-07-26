@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-sm mt-5">
-        <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('barang.store') }}" method="POST" >
             @csrf
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
@@ -37,37 +37,23 @@
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="jumlah" class="form-label">jumlah</label>
-                            <input class="form-control @error('jumlah') is-invalid @enderror" type="text" name="jumlah" id="jumlah" value="{{ old('jumlah') }}" placeholder="masukan jumlah barang">
-                            @error('jumlah')
-                                <div class="text-danger"><small>{{ $message }}</small></div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="tanggal_masuk" class="form-label">Tanggal Masuk</label>
-                            <input class="form-control @error('tanggal_masuk') is-invalid @enderror" type="date" name="tanggal_masuk" id="tanggal_masuk" value="{{ old('tanggal_masuk') }}">
-                            @error('tanggal_masuk')
-                                <div class="text-danger"><small>{{ $message }}</small></div>
-                            @enderror
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="tanggal_keluar" class="form-label">Tanggal Keluar</label>
-                            <input class="form-control @error('tanggal_keluar') is-invalid @enderror" type="date" name="tanggal_keluar" id="tanggal_keluar" value="{{ old('tanggal_keluar') }}">
-                            @error('tanggal_keluar')
+                            <label for="stok" class="form-label">stok</label>
+                            <input class="form-control @error('stok') is-invalid @enderror" type="text" name="stok" id="stok" value="{{ old('stok') }}" placeholder="masukan stok barang">
+                            @error('stok')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label for="keterangan" class="form-label">Deskripsi Barang</label>
-                            <input class="form-control @error('keterangan') is-invalid @enderror" type="text" name="keterangan" id="keterangan" value="{{ old('keterangan') }}" placeholder="Masukan Deskripsi Barang">
-                            @error('keterangan')
+                            <label for="deskripsi" class="form-label">Deskripsi Barang</label>
+                            <input class="form-control @error('deskripsi') is-invalid @enderror" type="text" name="deskripsi" id="deskripsi" value="{{ old('deskripsi') }}" placeholder="Masukan Deskripsi Barang">
+                            @error('deskripsi')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-                        <div class="col-md-12 mb-3">
+                        {{-- <div class="col-md-12 mb-3">
                             <label for="gambar" class="form-label">Gambar</label>
                             <input type="file" class="form-control" name="gambar" id="gambar">
-                        </div>
+                        </div> --}}
                     </div>
                     <hr>
                     <div class="row">

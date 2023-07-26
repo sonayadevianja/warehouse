@@ -14,7 +14,7 @@ class BarangSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('barang')->insert([
+        DB::table('barangs')->insert([
         ]);
         Barang::factory()->count(50)->create();
     }

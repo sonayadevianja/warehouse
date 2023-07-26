@@ -30,8 +30,6 @@
                     <th>Nama Barang</th>
                     <th>Tanggal Produksi</th>
                     <th>Jenis Barang</th>
-                    <th>Tanggal Keluar</th>
-                    <th>Tanggal Masuk</th>
                     <th>Stok</th>
                     <th>Deskripsi</th>
                     {{-- <th>Gambar</th> --}}
@@ -68,10 +66,8 @@
                     { data: "nama_barang", name: "nama_barang" },
                     { data: "tanggal_produksi", name: "tanggal_produksi" },
                     { data: "jenis.kode", name: "jenis.kode" },
-                    { data: "tanggal_keluar", name: "tanggal_keluar" },
-                    { data: "tanggal_masuk", name: "tanggal_masuk" },
-                    { data: "jumlah", name: "jumlah" },
-                    { data: "keterangan", name: "keterangan" },
+                    { data: "stok", name: "stok" },
+                    { data: "deskripsi", name: "deskripsi" },
                     { data: "actions", name: "actions", orderable: false, searchable: false },
                 ],
                 order: [[0, "desc"]],

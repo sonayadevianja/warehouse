@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\Jenis;
+// use App\Models\barangmasuk;
+// use App\Models\barangkeluar;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -44,25 +46,12 @@ class BarangController extends Controller
             $validator = Validator::make($request->all(), [
                 'nama_barang' => 'required',
                 'tanggal_produksi' => 'required',
-                'tanggal_masuk' => 'required',
-                'tanggal_keluar' => 'required',
-                'keterangan' => 'required',
-                'jumlah' => 'required|numeric',
+                'deskripsi' => 'required',
+                'stok' => 'required|numeric',
             ], $messages);
 
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
-            }
-
-            // Get File
-            $file = $request->file('gambar');
-
-            if ($file != null) {
-                $originalFilename = $file->getClientOriginalName();
-                $encryptedFilename = $file->hashName();
-
-                // Store File
-                $file->store('public/files');
             }
 
             // ELOQUENT
@@ -70,15 +59,8 @@ class BarangController extends Controller
             $barang->nama_barang = $request->nama_barang;
             $barang->tanggal_produksi = $request->tanggal_produksi;
             $barang->jenis_id = $request->jenis;
-            $barang->tanggal_keluar = $request->tanggal_keluar;
-            $barang->tanggal_masuk = $request->tanggal_masuk;
-            $barang->jumlah = $request->jumlah;
-            $barang->keterangan = $request->keterangan;
-
-            if ($file != null) {
-                $barang->original_filename = $originalFilename;
-                $barang->encrypted_filename = $encryptedFilename;
-            }
+            $barang->stok = $request->stok;
+            $barang->deskripsi = $request->deskripsi;
 
             $barang->save();
 
@@ -116,10 +98,10 @@ class BarangController extends Controller
     {
         $barang = Barang::find($id);
         $file ='public/files/'.$barang->encrypted_filename;
-        if (!empty($file)) {
-            // Hapus file dari direktori public
-            Storage::delete('/' . $file);
-        }
+        // if (!empty($file)) {
+        //     // Hapus file dari direktori public
+        //     Storage::delete('/' . $file);
+        // }
             // Hapus entitas dari database
             $barang->delete();
             return redirect()->route('barang.index');
