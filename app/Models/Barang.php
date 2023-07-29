@@ -24,4 +24,9 @@ class Barang extends Model
         return $this->belongsTo(barangkeluar::class);
     }
 
+   public function barangedit()
+    {
+        return $this->belongsTo(barangedit::class);
+    }
+
 }

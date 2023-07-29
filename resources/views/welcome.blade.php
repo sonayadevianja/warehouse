@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FASTER - Logistics Company Website Template</title>
+    <title>Rizal Salsa Collection</title>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">

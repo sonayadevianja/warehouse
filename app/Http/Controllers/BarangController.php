@@ -1,5 +1,7 @@
 <?php
-
+  /**
+     * BAGIAN FUNCTION UPDATE MASIH HARUS DIEDIT
+     */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -7,6 +9,7 @@ use App\Models\Barang;
 use App\Models\Jenis;
 // use App\Models\barangmasuk;
 // use App\Models\barangkeluar;
+use App\Models\barangedit;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -78,18 +81,50 @@ class BarangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $barang = Barang::findOrFail($id);
+        return view('barang.edit', compact('barang'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $barang = Barang::find($id);
+
+        if (!$barang) {
+            return redirect()->route('home')->with('error', 'Barang tidak ditemukan.');
+        }
+
+        $request->validate([
+            'nama_barang' => 'required',
+            'jenis' => 'required',
+            'tanggal_masuk' => 'required|date',
+            'tanggal_keluar' => 'required|date',
+            'jumlah' => 'required|numeric',
+            // Tambahkan validasi lain sesuai kebutuhan
+        ]);
+
+        // Simpan perubahan data ke dalam model BELUM VALID
+        $barang->nama_barang = $request->nama_barang;
+        $barang->jenis = $request->jenis;
+        $barang->tanggal_masuk = $request->tanggal_masuk;
+        $barang->tanggal_keluar = $request->tanggal_keluar;
+        $barang->jumlah = $request->jumlah;
+        // Update atribut lain sesuai kebutuhan
+
+        // Simpan perubahan ke dalam database
+        $barang->save();
+
+        return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui.');
     }
 
     /**
      * Update the specified resource in storjumlah.
      */
-    public function update(Request $request, string $id)
-    {
+   // public function update(Request $request, string $id)
+   // {
         //
-    }
+   // }
 
     /**
      * Remove the specified resource from storjumlah.

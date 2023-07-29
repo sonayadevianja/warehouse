@@ -30,6 +30,11 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/barangmasuk', [App\Http\Controllers\HomeController::class, 'barangmasuk'])->name('Barang Masuk');
 Route::get('/barangkeluar', [App\Http\Controllers\HomeController::class, 'barangkeluar'])->name('Barang Keluar');
+// routes/web.php
+Route::get('/barang/{id}/edit', 'BarangController@edit')->name('barang.edit');
+Route::put('/barang/{id}', 'BarangController@update')->name('barang.update');
+
+
 
 Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
 
