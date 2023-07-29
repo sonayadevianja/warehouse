@@ -39,5 +39,11 @@ class HomeController extends Controller
         return view('form_out',['pageTitle' => $pageTitle]);
     }
 
+   public function barangedit()
+   {
+        $pageTitle = 'Barang Edit';
+        return view('edit',['pageTitle' => $pageTitle]);
+    }
+
 
 }
