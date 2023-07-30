@@ -9,7 +9,7 @@ use App\Models\Barang;
 use App\Models\Jenis;
 // use App\Models\barangmasuk;
 // use App\Models\barangkeluar;
-use App\Models\barangedit;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -83,39 +83,35 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $barang = Barang::findOrFail($id);
-        return view('barang.edit', compact('barang'));
-    }
-
-    public function update(Request $request, $id)
-    {
+        $pageTitle = 'Barang Edit';
         $barang = Barang::find($id);
+        $jenis = Jenis::all();
+        return view('barang.edit', compact('barang','jenis','pageTitle'));
+    }
+    public function update(Request $request, string $id)
+    {
+        $messages = [
+            'required' => 'Attribute harus diisi',
+        ];
+        $validator = Validator::make($request->all(), [
+            'nama_barang'=>'required',
+            'deskripsi'=>'required'
+        ], $messages);
 
-        if (!$barang) {
-            return redirect()->route('home')->with('error', 'Barang tidak ditemukan.');
+        if ($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $request->validate([
-            'nama_barang' => 'required',
-            'jenis' => 'required',
-            'tanggal_masuk' => 'required|date',
-            'tanggal_keluar' => 'required|date',
-            'jumlah' => 'required|numeric',
-            // Tambahkan validasi lain sesuai kebutuhan
-        ]);
-
         // Simpan perubahan data ke dalam model BELUM VALID
+        $barang = Barang::find($id);
         $barang->nama_barang = $request->nama_barang;
-        $barang->jenis = $request->jenis;
-        $barang->tanggal_masuk = $request->tanggal_masuk;
-        $barang->tanggal_keluar = $request->tanggal_keluar;
-        $barang->jumlah = $request->jumlah;
+        $barang->jenis_id = $request->jenis;
+        $barang->deskripsi = $request->deskripsi;
         // Update atribut lain sesuai kebutuhan
 
         // Simpan perubahan ke dalam database
         $barang->save();
-
-        return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui.');
+        return redirect()->route('barang.index');
     }
 
     /**
