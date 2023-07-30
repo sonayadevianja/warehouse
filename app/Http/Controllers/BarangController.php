@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\Jenis;
-// use App\Models\barangmasuk;
+use App\Models\barangmasuk;
 // use App\Models\barangkeluar;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +70,38 @@ class BarangController extends Controller
             return redirect()->route('barang.index');
         }
 
+    // public function barangmasuk($id)
+    // {
+	// $barang = DB::table('barangs')
+    //             ->join('jenis', 'jenis.id', '=', 'barangs.jenis_id')
+    //             ->join('barangmasuks', 'barangmasuks.id', '=', 'barangs.barangmasuk_id')
+    //             ->where('barangs.id',$id)->get();
+	// // passing data barang yang didapat ke view
+	// return view('form_in',['barang' => $barang]);
+
+    // }
+
+    // public function tambah_barang_masuk(Request $request)
+    // {
+
+    //     $requestData = $request->all();
+    //     barangmasuks::create($requestData);
+
+    //     $brg = barangs::findOrFail($request->barangmasuk_id);
+    //     $brg->stok += $request->amount;
+    //     $brg->save();
+
+	// // // insert data ke table barang masuk
+	// // $requestData = $request->all();
+    // // barangmasuks::create($requestData);
+	// // // alihkan halaman ke halaman barang
+    // // $brg = barangs::findOrFail($request->barangs_id);
+    // // $brg->stok -= $request->amount;
+    // // $brg->save();
+
+	// return redirect()->route('barang.index');
+
+    // }
     /**
      * Display the specified resource.
      */

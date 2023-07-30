@@ -9,14 +9,22 @@ class Barang extends Model
 {
     use HasFactory;
 
+
     public function jenis()
     {
         return $this->belongsTo(jenis::class);
     }
 
+    protected $table = 'barangs';
+
+    protected $primaryKey = 'id';
+
+    // protected $guarded = [];
+    protected $fillable = ['stok'];
+
     public function barangmasuk()
     {
-        return $this->belongsTo(barangmasuk::class);
+        return $this->hasMany('App\barangmasuk', 'barangmasuk_id', 'id');
     }
 
     public function barangkeluar()

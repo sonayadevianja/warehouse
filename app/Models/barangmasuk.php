@@ -9,8 +9,14 @@ class barangmasuk extends Model
 {
     use HasFactory;
 
+    protected $table = 'barangmasuks';
+    protected $primaryKey = 'id';
+    protected $fillable = ['amount'];
+
     public function barang()
     {
-        return $this->hasMany(barang::class);
+        return $this->belongsTo('App\Barang', 'barangmasuk_id', 'id');
     }
+
+
 }
