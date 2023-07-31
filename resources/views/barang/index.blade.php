@@ -9,7 +9,12 @@
             <ul class="list-inline mb-0 float-end">
                     <li class="list-inline-item">
                         <a href="{{route('barangmasuk.create')}}" class="btn btn-info">
-                            <i class="bi bi-plus-circle-fill m-1"></i>Tambah Barang
+                            <i class="bi bi-plus-circle-fill m-1"></i>Barang Masuk
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{{route('barangkeluar.create')}}" class="btn btn-info">
+                            <i class="bi bi-plus-circle-fill m-1"></i>Barang Keluar
                         </a>
                     </li>
                     <li class="list-inline-item">|</li>

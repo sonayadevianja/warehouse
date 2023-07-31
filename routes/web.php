@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('barang', BarangController::class);
     Route::resource('barangmasuk', BarangMasukController::class);
+    Route::resource('barangkeluar', BarangKeluarController::class);
     // Route::get('/barang/barangmasuk/{id}', 'App\Http\Controllers\BarangMasukController@create');
     // Route::post('/barang/tambah_barang_masuk', 'App\Http\Controllers\BarangMasukController@store');
     Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');

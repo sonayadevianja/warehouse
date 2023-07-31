@@ -23,6 +23,11 @@ class Barang extends Model
     {
         return $this->hasMany(barangmasuk::class);
     }
+    public function barangkeluar()
+    {
+        return $this->hasMany(barangkeluar::class);
+    }
+
 
 
     // protected $guarded = [];
