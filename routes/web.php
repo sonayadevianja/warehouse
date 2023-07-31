@@ -2,6 +2,7 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -29,9 +30,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('barang', BarangController::class);
     Route::resource('barangmasuk', BarangMasukController::class);
     Route::resource('barangkeluar', BarangKeluarController::class);
-    // Route::get('/barang/barangmasuk/{id}', 'App\Http\Controllers\BarangMasukController@create');
-    // Route::post('/barang/tambah_barang_masuk', 'App\Http\Controllers\BarangMasukController@store');
+
+    Route::get('history_barangmasuk', [HistoryController::class,'index'])->name('History_in.index');
+    Route::get('history_barangkeluar', [HistoryController::class,'barangkeluar'])->name('History_out.index');
+
     Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
+
+    Route::get('getMasuk', [HistoryController::class,'MasukJson'])->name('History.Masuk');
+    Route::get('getKeluar', [HistoryController::class,'KeluarJson'])->name('History.Keluar');
 
     Route::get('/local-disk', function() {
         Storage::disk('local')->put('local-example.txt', 'This is local example content');

@@ -52,9 +52,9 @@ class BarangKeluarController extends Controller
 
         $barangkeluar = new barangkeluar;
         $barangkeluar -> barang_id = $request->barang_id;
-        $barangkeluar -> tanggal_masuk = $request->tanggal_keluar;
+        $barangkeluar -> tanggal_keluar = $request->tanggal_keluar;
         $barangkeluar -> amount = $request->amount;
-        // $barangmasuk -> save();
+        $barangkeluar -> save();
 
         $barang = Barang::findOrFail($request->barang_id);
         $barang->stok -= $request->amount;

@@ -26,9 +26,9 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="tanggal_masuk" class="form-label @error('tanggal_masuk') is-invalid @enderror">Tanggal Masuk</label>
-                                <input type="date" name="tanggal_masuk" class="form-control">
-                                @error('tanggal_masuk')
+                                <label for="tanggal_keluar" class="form-label @error('tanggal_keluar') is-invalid @enderror">Tanggal Keluar</label>
+                                <input type="date" name="tanggal_keluar" class="form-control">
+                                @error('tanggal_keluar')
                                     <div class="text-danger"><small>{{ $message }}</small></div>
                                 @enderror
                             </div>
