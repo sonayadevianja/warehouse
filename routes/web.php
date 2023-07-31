@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -25,29 +26,24 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('barang', BarangController::class);
+    Route::resource('barangmasuk', BarangMasukController::class);
+    // Route::get('/barang/barangmasuk/{id}', 'App\Http\Controllers\BarangMasukController@create');
+    // Route::post('/barang/tambah_barang_masuk', 'App\Http\Controllers\BarangMasukController@store');
+    Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
+
+    Route::get('/local-disk', function() {
+        Storage::disk('local')->put('local-example.txt', 'This is local example content');
+        return asset('storage/local-example.txt');
+    });
+
+    Route::get('/public-disk', function() {
+        Storage::disk('public')->put('public-example.txt', 'This is public example content');
+        return asset('storage/public-example.txt');
+    });
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/barang/barangmasuk/{id}', 'App\Http\Controllers\BarangMasukController@index');
-Route::post('/barang/tambah_barang_masuk', 'App\Http\Controllers\BarangMasukController@store');
-Route::get('/barangkeluar', [App\Http\Controllers\HomeController::class, 'barangkeluar'])->name('Barang Keluar');
 // routes/web.php
-Route::get('/barang/{id}/edit', 'BarangController@edit')->name('barang.edit');
-Route::put('/barang/{id}', 'BarangController@update')->name('barang.update');
-
-
-
-Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
-
-Route::get('/local-disk', function() {
-    Storage::disk('local')->put('local-example.txt', 'This is local example content');
-    return asset('storage/local-example.txt');
-});
-
-Route::get('/public-disk', function() {
-    Storage::disk('public')->put('public-example.txt', 'This is public example content');
-    return asset('storage/public-example.txt');
-});
 
 
 

@@ -24,8 +24,8 @@ class BarangFactory extends Factory
             'nama_barang' => fake()->name(),
             'tanggal_produksi' => $this->faker->date($format='Y-m-d', $max='now'),
             'jenis_id'=> Jenis::factory(),
-            'barangmasuk_id' => barangmasuk::factory(),
-            'barangkeluar_id'=> barangkeluar::factory(),
+            // 'barangmasuk_id' => barangmasuk::factory(),
+            // 'barangkeluar_id'=> barangkeluar::factory(),
             'stok' => $this->faker->numberBetween(25, 50),
             'deskripsi' => fake()->sentence(),
         ];

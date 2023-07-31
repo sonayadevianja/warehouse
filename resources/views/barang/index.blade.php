@@ -8,7 +8,7 @@
         <div class="col-lg-3 col-xl-6">
             <ul class="list-inline mb-0 float-end">
                     <li class="list-inline-item">
-                        <a href="{{url('/barangmasuk')}}" class="btn btn-info">
+                        <a href="{{route('barangmasuk.create')}}" class="btn btn-info">
                             <i class="bi bi-plus-circle-fill m-1"></i>Tambah Barang
                         </a>
                     </li>

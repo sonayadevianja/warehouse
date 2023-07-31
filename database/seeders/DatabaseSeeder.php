@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             JenisSeeder::class,
             BarangSeeder::class,
             barangmasukSeeder::class,
-            barangkeluarSeeder::class,
+            // barangkeluarSeeder::class,
         ]);
     }
 }
