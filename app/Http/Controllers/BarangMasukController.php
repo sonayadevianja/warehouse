@@ -54,7 +54,7 @@ class BarangMasukController extends Controller
         $barangmasuk -> barang_id = $request->barang_id;
         $barangmasuk -> tanggal_masuk = $request->tanggal_masuk;
         $barangmasuk -> amount = $request->amount;
-        // $barangmasuk -> save();
+        $barangmasuk -> save();
 
         $barang = Barang::findOrFail($request->barang_id);
         $barang->stok += $request->amount;

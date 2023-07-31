@@ -43,14 +43,15 @@ class BarangController extends Controller
         {
             $messages = [
                 'required' => ':Attribute harus diisi.',
-                'numeric' => 'Isi :attribute dengan angka'
+                // 'numeric' => 'Isi :attribute dengan angka'
+                'unique' => 'Nama sudah tersedia',
             ];
 
             $validator = Validator::make($request->all(), [
-                'nama_barang' => 'required',
+                'nama_barang' => 'required|unique:barangs',
                 'tanggal_produksi' => 'required',
                 'deskripsi' => 'required',
-                'stok' => 'required|numeric',
+                // 'stok' => 'required|numeric',
             ], $messages);
 
             if ($validator->fails()) {
@@ -62,7 +63,7 @@ class BarangController extends Controller
             $barang->nama_barang = $request->nama_barang;
             $barang->tanggal_produksi = $request->tanggal_produksi;
             $barang->jenis_id = $request->jenis;
-            $barang->stok = $request->stok;
+            // $barang->stok = $request->stok;
             $barang->deskripsi = $request->deskripsi;
 
             $barang->save();

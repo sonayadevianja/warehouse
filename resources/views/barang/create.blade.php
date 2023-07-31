@@ -11,7 +11,7 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label for="nama_barang" class="form-label">Nama Barang</label>
                             <input class="form-control @error('nama_barang') is-invalid @enderror" type="text" name="nama_barang" id="nama_barang" value="{{ old('nama_barang') }}" placeholder="masukan Nama Barang">
                             @error('nama_barang')
@@ -36,13 +36,13 @@
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-                        <div class="col-md-6 mb-3">
+                        {{-- <div class="col-md-6 mb-3">
                             <label for="stok" class="form-label">stok</label>
                             <input class="form-control @error('stok') is-invalid @enderror" type="text" name="stok" id="stok" value="{{ old('stok') }}" placeholder="masukan stok barang">
                             @error('stok')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="col-md-12 mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi Barang</label>
                             <input class="form-control @error('deskripsi') is-invalid @enderror" type="text" name="deskripsi" id="deskripsi" value="{{ old('deskripsi') }}" placeholder="Masukan Deskripsi Barang">

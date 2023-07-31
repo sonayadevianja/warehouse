@@ -5,6 +5,17 @@
         <div class="col-lg-9 col-xl-10">
             <h4 class="mb-3">{{ $pageTitle }}</h4>
         </div>
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
         <div class="col-lg-3 col-xl-6">
             <ul class="list-inline mb-0 float-end">
                     <li class="list-inline-item">
@@ -17,6 +28,7 @@
                             <i class="bi bi-plus-circle-fill m-1"></i>Barang Keluar
                         </a>
                     </li>
+
                     <li class="list-inline-item">|</li>
                     <li class="list-inline-item">
                         <a href="{{ route('barang.create') }}" class="btn btn-dark">

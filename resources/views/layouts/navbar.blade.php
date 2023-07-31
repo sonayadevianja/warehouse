@@ -4,17 +4,22 @@
             <img style="width: 120px; height: 80px;" src="img/logo.png" alt="">
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+                    <a href="{{ route('home') }}" class="nav-item nav-link">Home</a>
                     <a href="{{ route('barang.index') }}" class="nav-item nav-link">Barang</a>
-                    <a href="#" class="nav-item nav-link">History</a>
-                    {{-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="single.html" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div> --}}
-            <!-- admin logo -->
+                    {{-- <a href="{{ route('History.index') }}" class="nav-item nav-link">History</a> --}}
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              History
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                              <li><a class="dropdown-item" href="{{ route('History_in.index') }}">History Barang Masuk</a></li>
+                              <li><a class="dropdown-item" href="{{ route('History_out.index') }}">History Barang Keluar</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                    </div>
                 </div>
                 {{-- <a href=" " class="btn btn-primary py-2 px-4 d-none d-lg-block" ><img style="width: 25px; height: 30px;" src="img/admin.png" alt=""> Admin</a> --}}
                 <ul class="navbar-nav ms-auto">

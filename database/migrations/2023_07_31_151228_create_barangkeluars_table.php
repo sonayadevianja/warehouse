@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('barangkeluars', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('barang_id')->unsigned();
-            $table->date('tanggal_masuk');
+            $table->date('tanggal_keluar');
             $table->integer('amount');
             $table->timestamps();
         });
