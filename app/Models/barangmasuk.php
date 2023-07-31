@@ -9,14 +9,14 @@ class barangmasuk extends Model
 {
     use HasFactory;
 
-    protected $table = 'barangmasuks';
-    protected $primaryKey = 'id';
-    protected $fillable = ['amount'];
+    // protected $table = 'barangmasuks';
+    // // protected $primaryKey = 'id';
+    // protected $fillable = ['amount','tanggal_masuk'];
+    // protected $hidden = ['created_at','updated_at'];
 
     public function barang()
     {
-        return $this->belongsTo('App\Barang', 'barangmasuk_id', 'id');
+        return $this->belongsTo(Barang::class);
     }
-
 
 }

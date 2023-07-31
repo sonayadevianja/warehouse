@@ -19,6 +19,7 @@ class BarangmasukFactory extends Factory
     public function definition(): array
     {
         return [
+            'barang_id'=> Barang::factory(),
             'tanggal_masuk' => $this->faker->date($format='Y-m-d', $max='now'),
             'amount' => $this->faker->numberBetween(25, 50),
         ];

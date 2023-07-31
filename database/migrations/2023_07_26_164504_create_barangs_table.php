@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('nama_barang');
             $table->date('tanggal_produksi');
             $table->unsignedBigInteger('jenis_id')->unsigned();
-            $table->unsignedBigInteger('barangmasuk_id')->unsigned()->nullable();
-            $table->unsignedBigInteger('barangkeluar_id')->unsigned()->nullable();
-            $table->integer('stok');
+            $table->integer('stok')->nullable();
             $table->string('deskripsi');
             $table->timestamps();
         });
@@ -26,8 +24,6 @@ return new class extends Migration
         Schema::table('barangs', function (Blueprint $table) {
             // $table->unsignedBigInteger('jenis_id');
             $table->foreign('jenis_id')->references('id')->on('jenis');
-            $table->foreign('barangmasuk_id')->references('id')->on('barangmasuks');
-            $table->foreign('barangkeluar_id')->references('id')->on('barangkeluars');
         });
     }
 

@@ -140,7 +140,6 @@ class BarangController extends Controller
         $barang->jenis_id = $request->jenis;
         $barang->deskripsi = $request->deskripsi;
         // Update atribut lain sesuai kebutuhan
-
         // Simpan perubahan ke dalam database
         $barang->save();
         return redirect()->route('barang.index');
@@ -178,7 +177,7 @@ class BarangController extends Controller
             return datatables()->of($barang)
                 ->addIndexColumn()
                 ->addColumn('actions', function($barang) {
-                    return view('barang.actions', compact('barang'));
+                     return view('barang.actions', compact('barang'));
                 })
                 ->toJson();
         }
