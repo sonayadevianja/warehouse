@@ -11,6 +11,6 @@ class barangkeluar extends Model
 
     public function barang()
     {
-        return $this->hasMany(barang::class);
+        return $this->belongsTo(Barang::class);
     }
 }
