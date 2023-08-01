@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Barang;
 use App\Models\Jenis;
 use App\Models\barangmasuk;
-// use App\Models\barangkeluar;
+use App\Models\barangkeluar;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -57,6 +57,15 @@ class BarangController extends Controller
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
+            $file = $request->file('gambar');
+
+            if ($file != null) {
+                $originalFilename = $file->getClientOriginalName();
+                $encryptedFilename = $file->hashName();
+
+                // Store File
+                $file->store('public/files');
+            }
 
             // ELOQUENT
             $barang = New Barang;
@@ -66,49 +75,24 @@ class BarangController extends Controller
             // $barang->stok = $request->stok;
             $barang->deskripsi = $request->deskripsi;
 
+            if ($file != null) {
+                $barang->original_filename = $originalFilename;
+                $barang->encrypted_filename = $encryptedFilename;
+            }
+
             $barang->save();
 
             return redirect()->route('barang.index');
         }
-
-    // public function barangmasuk($id)
-    // {
-	// $barang = DB::table('barangs')
-    //             ->join('jenis', 'jenis.id', '=', 'barangs.jenis_id')
-    //             ->join('barangmasuks', 'barangmasuks.id', '=', 'barangs.barangmasuk_id')
-    //             ->where('barangs.id',$id)->get();
-	// // passing data barang yang didapat ke view
-	// return view('form_in',['barang' => $barang]);
-
-    // }
-
-    // public function tambah_barang_masuk(Request $request)
-    // {
-
-    //     $requestData = $request->all();
-    //     barangmasuks::create($requestData);
-
-    //     $brg = barangs::findOrFail($request->barangmasuk_id);
-    //     $brg->stok += $request->amount;
-    //     $brg->save();
-
-	// // // insert data ke table barang masuk
-	// // $requestData = $request->all();
-    // // barangmasuks::create($requestData);
-	// // // alihkan halaman ke halaman barang
-    // // $brg = barangs::findOrFail($request->barangs_id);
-    // // $brg->stok -= $request->amount;
-    // // $brg->save();
-
-	// return redirect()->route('barang.index');
-
-    // }
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $pageTitle = 'Detail Barang';
+
+        $barang = Barang::find($id);
+        return view('barang.show', compact('pageTitle', 'barang'));
     }
 
     /**
@@ -135,11 +119,25 @@ class BarangController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $file = $request->file('gambar');
+
+        if ($file != null) {
+            $originalFilename = $file->getClientOriginalName();
+            $encryptedFilename = $file->hashName();
+
+            // Store File
+            $file->store('public/files');
+        }
+
         // Simpan perubahan data ke dalam model BELUM VALID
         $barang = Barang::find($id);
         $barang->nama_barang = $request->nama_barang;
         $barang->jenis_id = $request->jenis;
         $barang->deskripsi = $request->deskripsi;
+        if ($file != null) {
+            $barang->original_filename = $originalFilename;
+            $barang->encrypted_filename = $encryptedFilename;
+        }
         // Update atribut lain sesuai kebutuhan
         // Simpan perubahan ke dalam database
         $barang->save();
@@ -181,6 +179,17 @@ class BarangController extends Controller
                      return view('barang.actions', compact('barang'));
                 })
                 ->toJson();
+        }
+    }
+
+    public function downloadFile($barangId)
+    {
+        $barang = Barang::find($barangId);
+        $encryptedFilename = 'public/files/'.$barang->encrypted_filename;
+        $downloadFilename = Str::lower($barang->nama_barang.'_cv.pdf');
+
+        if(Storage::exists($encryptedFilename)) {
+            return Storage::download($encryptedFilename, $downloadFilename);
         }
     }
 }

@@ -48,6 +48,9 @@ Route::group(['middleware'=>'auth'],function(){
         Storage::disk('public')->put('public-example.txt', 'This is public example content');
         return asset('storage/public-example.txt');
     });
+
+    Route::get('download-file/{barangId}', [BarangController::class, 'downloadFile'])->name('barang.downloadFile');
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

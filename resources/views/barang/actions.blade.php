@@ -1,8 +1,7 @@
 <div class="d-flex">
-    <a href="#" class="btn btn-outline-dark btn-sm me-2">
+    <a href="{{ route('barang.show', ['barang' => $barang->id]) }}" class="btn btn-outline-dark btn-sm me-2">
         <i class="bi-person-lines-fill"></i>
     </a>
-
     <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
     {{-- <a href=" {{route('barangmasuk.create', $barang->id)}}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-plus-circle-fill"></i></a> --}}
     <div>

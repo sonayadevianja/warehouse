@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-sm mt-5">
-        <form action="{{ route('barang.store') }}" method="POST" >
+        <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data" >
             @csrf
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
@@ -50,10 +50,10 @@
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-                        {{-- <div class="col-md-12 mb-3">
+                        <div class="col-md-12 mb-3">
                             <label for="gambar" class="form-label">Gambar</label>
                             <input type="file" class="form-control" name="gambar" id="gambar">
-                        </div> --}}
+                        </div>
                     </div>
                     <hr>
                     <div class="row">
