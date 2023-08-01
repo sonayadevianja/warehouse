@@ -5,7 +5,7 @@
 
 <!-- Form -->
     <div class="container-sm mt-5">
-        <form action="{{ route('barang.update', $barang->id ?? 'id not found') }}" method="POST">
+        <form action="{{ route('barang.update', $barang->id ?? 'id not found') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row justify-content-center">
@@ -39,6 +39,20 @@
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="gambar" class="form-label">Gambar</label>
+                            @if ($barang->original_filename)
+                                <h5>{{ $barang->original_filename }}</h5>
+                            @else
+                                <h5>Tidak ada</h5>
+                            @endif
+                            <input type="file" class="form-control" name="gambar" id="gambar">
+                            @error('gambar')
+                                <div class="text-danger"><small>{{ $message }}</small></div>
+                            @enderror
+                        </div>
+
                     </div>
                     <hr>
                     <div class="row">
