@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BarangMasukController extends Controller
 {
@@ -59,7 +60,7 @@ class BarangMasukController extends Controller
         $barang = Barang::findOrFail($request->barang_id);
         $barang->stok += $request->amount;
         $barang->save();
-
+        Alert::success('Menambahkan Stok Barang', 'Menambahkan Stok berhasil');
         return redirect()->route('barang.index');
     }
 

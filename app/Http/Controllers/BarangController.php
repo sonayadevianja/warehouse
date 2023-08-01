@@ -13,6 +13,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BarangExport;
+use PDF;
 
 class BarangController extends Controller
 {
@@ -22,6 +26,7 @@ class BarangController extends Controller
     public function index()
     {
         $pageTitle = 'Barang List';
+        confirmDelete();
         return view('barang.index', compact('pageTitle'));
 
     }
@@ -82,6 +87,7 @@ class BarangController extends Controller
 
             $barang->save();
 
+            Alert::success('Added Successfully', 'Employee Data Added Successfully.');
             return redirect()->route('barang.index');
         }
     /**
@@ -141,6 +147,8 @@ class BarangController extends Controller
         // Update atribut lain sesuai kebutuhan
         // Simpan perubahan ke dalam database
         $barang->save();
+        Alert::success('Changed Successfully', 'Employee Data Changed Successfully.');
+
         return redirect()->route('barang.index');
     }
 
@@ -159,12 +167,13 @@ class BarangController extends Controller
     {
         $barang = Barang::find($id);
         $file ='public/files/'.$barang->encrypted_filename;
-        // if (!empty($file)) {
-        //     // Hapus file dari direktori public
-        //     Storage::delete('/' . $file);
-        // }
+        if (!empty($file)) {
+            // Hapus file dari direktori public
+            Storage::delete('/' . $file);
+        }
             // Hapus entitas dari database
             $barang->delete();
+            Alert::success('Deleted Successfully', 'Employee Data Deleted Successfully.');
             return redirect()->route('barang.index');
     }
 
@@ -175,6 +184,9 @@ class BarangController extends Controller
         if ($request->ajax()) {
             return datatables()->of($barang)
                 ->addIndexColumn()
+                ->addColumn('gambar.original_filename', function ($barang) {
+                    return ' '.$barang->original_filename.' ';
+                   })
                 ->addColumn('actions', function($barang) {
                      return view('barang.actions', compact('barang'));
                 })
@@ -192,4 +204,20 @@ class BarangController extends Controller
             return Storage::download($encryptedFilename, $downloadFilename);
         }
     }
+
+    public function exportExcel()
+    {
+        return Excel::download(new BarangExport, 'Barang.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $barangs = Barang::all();
+
+        $pdf = PDF::loadView('barang.export_pdf', compact('barangs'));
+
+        return $pdf->download('barang.pdf');
+    }
+
+
 }
