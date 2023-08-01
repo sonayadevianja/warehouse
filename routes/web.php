@@ -51,6 +51,10 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('download-file/{barangId}', [BarangController::class, 'downloadFile'])->name('barang.downloadFile');
 
+    Route::get('exportExcel', [BarangController::class, 'exportExcel'])->name('barang.exportExcel');
+
+    Route::get('exportPdf', [BarangController::class, 'exportPdf'])->name('barang.exportPdf');
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

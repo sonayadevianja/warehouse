@@ -18,6 +18,16 @@
         </div>
         <div class="col-lg-3 col-xl-6">
             <ul class="list-inline mb-0 float-end">
+                <li class="list-inline-item">
+                    <a href="{{ route('barang.exportPdf') }}" class="btn btn-outline-danger">
+                        <i class="bi bi-download me-1"></i> to PDF
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="{{ route('barang.exportExcel') }}" class="btn btn-outline-success">
+                        <i class="bi bi-download me-1"></i> to Excel
+                    </a>
+                </li>
                     <li class="list-inline-item">
                         <a href="{{route('barangmasuk.create')}}" class="btn btn-info">
                             <i class="bi bi-plus-circle-fill m-1"></i>Barang Masuk
@@ -40,7 +50,7 @@
     </div>
     <hr>
     <div class="table-responsive border p-3 rounded-3">
-        <table class="table table-bordered table-hover table-striped mb-0 bg-white" id="BarangKuy">
+        <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable" id="BarangKuy">
             <thead>
                 <tr>
                     <th>No</th>
@@ -49,7 +59,7 @@
                     <th>Jenis Barang</th>
                     <th>Stok</th>
                     <th>Deskripsi</th>
-                    {{-- <th>Gambar</th> --}}
+                    <th>Gambar</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -85,6 +95,12 @@
                     { data: "jenis.kode", name: "jenis.kode" },
                     { data: "stok", name: "stok" },
                     { data: "deskripsi", name: "deskripsi" },
+                    { data: 'gambar.original_filename', name: 'gambar.original_filename',
+                        render: function( data, type, full, meta ) {
+                            return "<img src=\"" + data + "\" height=\"50\"/>";
+                        }
+                    },
+                    // { data: "encrypted_filename", name: "encrypted_filename" },
                     { data: "actions", name: "actions", orderable: false, searchable: false },
                 ],
                 order: [[0, "desc"]],
@@ -92,6 +108,26 @@
                     [10, 25, 50, 100, -1],
                     [10, 25, 50, 100, "All"],
                 ],
+            });
+
+            $(".datatable").on("click", ".btn-delete", function (e) {
+                e.preventDefault();
+
+                var form = $(this).closest("form");
+                var name = $(this).data("name");
+
+                Swal.fire({
+                    title: "Are you sure want to delete\n" + name + "?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "bg-primary",
+                    confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
             });
         });
     </script>
