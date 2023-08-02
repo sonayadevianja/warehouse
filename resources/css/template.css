@@ -1022,7 +1022,8 @@ width: 100%; }
     width: 58%;
     height: 100%;
     position: relative;
-    background-image: url("../images/08e9f39211196b9e329ea34c6067e44570d6c8cb_s2_n3_y1.jpg");
+    background-color: #000000;
+    /* background-image: url("08e9f39211196b9e329ea34c6067e44570d6c8cb_s2_n3_y1.jpg"); */
     background-repeat: no-repeat;
     background-size: cover; }
     .auth-box .right:before {
