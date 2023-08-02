@@ -1,3 +1,6 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
 <style>
     li {
         list-style: none;
@@ -14,26 +17,34 @@
         /* color: white; */
     }
 
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: fixed;
-        margin-left: -300px;
-        transition: 0.4s;
-        background-color: #C79A56;
-    }
+.overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    width: 100vw;
+    height: 100vh;
+    /* transparent black */
+    background: rgba(0, 0, 0, 0.7);
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 998;
+    opacity: 0;
+    /* animate the transition */
+    transition: all 0.5s ease-in-out;
+}
+/* display .overlay when it has the .active class */
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
 
-    .active-main-content {
-        margin-left: 250px;
-    }
-
-    .active-sidebar {
-        margin-left: 0;
-    }
-
-    #main-content {
-        transition: 0.4s;
-    }
+#dismiss {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    /* top right corner of the sidebar */
+    top: 10px;
+    right: 10px;
+}
 
     </style>
 <!-- Navbar Start -->

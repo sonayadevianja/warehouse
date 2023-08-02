@@ -21,7 +21,7 @@ return new class extends Migration
 
         Schema::table('barangkeluars', function (Blueprint $table) {
             // $table->unsignedBigInteger('jenis_id');
-            $table->foreign('barang_id')->references('id')->on('barangs');
+            $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('cascade');
         });
     }
 
