@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="container mt-4" >
+<div class="container mt-4" id="main-content" >
     <div class="row mb-0">
         <div class="col-lg-9 col-xl-10">
-            <h4 class="mb-3">{{ $pageTitle }}</h4>
+            <h1 class="mb-3" style="font-family:Monospace">{{ $pageTitle }}</h1>
         </div>
-        <div class="col-lg-3 col-xl-6">
-            <ul class="list-inline mb-0 float-end">
+        <div class="col-lg-12 col-xl-12">
+            <ul class="list-inline mb-3 float-end">
                 <li class="list-inline-item">
                     <a href="{{ route('barang.exportPdf') }}" class="btn btn-outline-danger">
                         <i class="bi bi-download me-1"></i> to PDF
@@ -18,40 +18,23 @@
                     </a>
                 </li>
                     <li class="list-inline-item">
-                        <a href="{{route('barangmasuk.create')}}" class="btn btn-info">
-                            <i class="bi bi-plus-circle-fill m-1"></i>Barang Masuk
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="{{route('barangkeluar.create')}}" class="btn btn-info">
-                            <i class="bi bi-plus-circle-fill m-1"></i>Barang Keluar
-                        </a>
-                    </li>
-
-                    <li class="list-inline-item">|</li>
-                    <li class="list-inline-item">
-                        <a href="{{ route('barang.create') }}" class="btn btn-dark">
-                            <i class="bi bi-plus-circle me-1"></i> Create Barang
-                        </a>
-                    </li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown button
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="{{ route('barang.create') }}">Input Barang</a></li>
+                              <li><a class="dropdown-item" href="{{route('barangmasuk.create')}}">Tambah Stok Barang</a></li>
+                              <li><a class="dropdown-item" href="{{route('barangkeluar.create')}}">Kurang Stok Barang</a></li>
+                            </ul>
+                          </div>
+                        </li>
             </ul>
         </div>
     </div>
-    <div class="btn-group">
-        <button type="button" class="btn btn-success dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
-          Action
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
-      </div>
     <hr>
     <div class="table-responsive border p-3 rounded-3">
-        <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable" id="BarangKuy">
+        <table class="table table-bordered table-hover table-striped mb-0 bg-info datatable" id="BarangKuy">
             <thead>
                 <tr>
                     <th>No</th>

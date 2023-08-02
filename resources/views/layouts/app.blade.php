@@ -31,7 +31,7 @@
 <body>
     <div id="app">
             @include('layouts.navbar')
-            @yield('content')
+            {{-- @yield('content') --}}
             @vite('resources/js/app.js')
             @include('sweetalert::alert')
             @stack('scripts')
