@@ -1,33 +1,50 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
 <style>
-    li {
-        list-style: none;
-        margin: 20px 0 20px 0;
-    }
+    .wrapper {
+    display: block;
+}
 
-    a {
-        text-decoration: none;
-    }
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* top layer */
+    z-index: 9999;
+}
 
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: fixed;
-        margin-left: -300px;
-        transition: 0.4s;
-        background-color: #C79A56;
-    }
+.overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    width: 100vw;
+    height: 100vh;
+    /* transparent black */
+    background: rgba(0, 0, 0, 0.7);
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 998;
+    opacity: 0;
+    /* animate the transition */
+    transition: all 0.5s ease-in-out;
+}
+/* display .overlay when it has the .active class */
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
 
-    .active-main-content {
-        margin-left: 250px;
-    }
-
-    .active-sidebar {
-        margin-left: 0;
-    }
-
-    #main-content {
-        transition: 0.4s;
-    }
+#dismiss {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    /* top right corner of the sidebar */
+    top: 10px;
+    right: 10px;
+}
 
     </style>
 <!-- Navbar Start -->
@@ -81,27 +98,25 @@
 <div class="wrapper">
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 " style="background-color: #C79A56">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline">Menu</span>
-                    </a>
+                    <h1>MENU</h1>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link align-middle px-0">
+                            <a href="{{ route('home') }}" class="nav-link align-middle px-0" style="color:black">
                                 <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('barang.index') }}" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">List Barang</span></a>
+                        <li class="nav-item">
+                            <a href="{{ route('barang.index') }}" class="nav-link px-0 align-middle"  style="color:black">
+                                <i class="bi bi-card-list fs-4"></i> <span class="ms-1 d-none d-sm-inline">List Barang</span></a>
                         </li>
-                        <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <li class="nav-item">
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle" style="color:black">
                                 <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">History</span> </a>
                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="{{ route('History_in.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">History Barang Masuk</span> 1 </a>
+                                    <a href="{{ route('History_in.index') }}" class="nav-link px-0"  style="color:black"> <span class="d-none d-sm-inline">History Barang Masuk</span> 1 </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('History_out.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">History Barang Keluar</span> 2 </a>

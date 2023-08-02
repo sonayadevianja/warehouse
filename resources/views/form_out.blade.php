@@ -6,8 +6,8 @@
                 <div class="row justify-content-center">
                     <div class="p-5 bg-light rounded-3 border col-xl-6">
                         <div class="mb-3 text-center">
-                            <i class="bi bi-bag-heart fs-1"></i>
-                            <h4>BARANG KELUAR</h4>
+                            <i class="bi bi-bag-dash-fill fs-1"></i>
+                            <h4>KURANG STOK</h4>
                         </div>
                         <hr>
                         <div class="row">

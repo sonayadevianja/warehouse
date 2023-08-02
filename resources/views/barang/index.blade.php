@@ -9,32 +9,37 @@
             <ul class="list-inline mb-3 float-end">
                 <li class="list-inline-item">
                     <a href="{{ route('barang.exportPdf') }}" class="btn btn-outline-danger">
-                        <i class="bi bi-download me-1"></i> to PDF
+                        <i class="bi bi-file-earmark-pdf-fill"></i> to PDF
                     </a>
                 </li>
                 <li class="list-inline-item">
                     <a href="{{ route('barang.exportExcel') }}" class="btn btn-outline-success">
-                        <i class="bi bi-download me-1"></i> to Excel
+                        <i class="bi bi-file-earmark-spreadsheet-fill"></i> to Excel
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="{{ route('barang.create') }}" class="btn btn-dark " style="background-color: #8C5630 ">
+                        <i class="bi bi-box-fill"></i> Input Barang
                     </a>
                 </li>
                     <li class="list-inline-item">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-dark dropdown-toggle" type="button" style="background-color:#8C5630 " id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                               Dropdown button
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="{{ route('barang.create') }}">Input Barang</a></li>
-                              <li><a class="dropdown-item" href="{{route('barangmasuk.create')}}">Tambah Stok Barang</a></li>
-                              <li><a class="dropdown-item" href="{{route('barangkeluar.create')}}">Kurang Stok Barang</a></li>
+                              {{-- <li><a class="dropdown-item" href="{{ route('barang.create') }}"><i class="bi bi-box-fill"></i>Input Barang</a></li> --}}
+                              <li><a class="dropdown-item" href="{{route('barangmasuk.create')}}"><i class="bi bi-bag-plus-fill"></i>Tambah Stok Barang</a></li>
+                              <li><a class="dropdown-item" href="{{route('barangkeluar.create')}}"><i class="bi bi-bag-dash-fill"></i>Kurang Stok Barang</a></li>
                             </ul>
-                          </div>
-                        </li>
+                        </div>
+                    </li>
             </ul>
         </div>
     </div>
     <hr>
     <div class="table-responsive border p-3 rounded-3">
-        <table class="table table-bordered table-hover table-striped mb-0 bg-info datatable" id="BarangKuy">
+        <table class="table table-bordered table-hover table-striped mb-0 bg-light datatable" id="BarangKuy">
             <thead>
                 <tr>
                     <th>No</th>

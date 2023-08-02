@@ -12,7 +12,7 @@
                 <div class="p-5 rounded-3 border col-xl-6" style="background-color: #fff;">
 
                     <div class="mb-3 text-center">
-                        <i class="bi-person-circle fs-1"></i>
+                        <i class="bi bi-pencil-fill fs-1"></i>
                         <h4>FORM EDIT BARANG </h4>
                     </div>
                     <hr>

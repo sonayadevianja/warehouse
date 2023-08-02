@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-sm mt-5">
-        <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data" >
+        <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row justify-content-center">
-                <div class="p-5 bg-light rounded-3 border col-xl-6">
+                <div class="p-5 rounded-3 border col-xl-6" style="background-color: #C79A56">
                     <div class="mb-3 text-center">
-                        <i class="bi bi-bag-heart fs-1"></i>
+                        <i class="bi bi-box-fill fs-1"></i>
                         <h4>Input Barang</h4>
                     </div>
                     <hr>
