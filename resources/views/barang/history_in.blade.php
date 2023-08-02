@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="row mb-0">
         <div class="col-lg-9 col-xl-10">
-            <h4 class="mb-3">{{ $pageTitle }}</h4>
+            <h1 class="mb-3" style="font-family:Monospace">{{ $pageTitle }}</h1>
         </div>
     </div>
     <hr>

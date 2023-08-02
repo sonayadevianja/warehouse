@@ -2,9 +2,9 @@
 @section('content')
     <div class="container-sm my-5">
         <div class="row justify-content-center">
-            <div class="p-5 bg-light rounded-3 col-xl-4 border">
+            <div class="p-5 rounded-3 col-xl-4 border" style="background-color: #C79A56">
                 <div class="mb-3 text-center">
-                    <i class="bi bi-info-square-fill fs-1"></i>
+                    <i class="bi bi-info-square-fill" style="font-size: 5rem"></i>
                     <h4>Detail Barang</h4>
                 </div>
                 <hr>
@@ -44,7 +44,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12 d-grid">
-                        <a href="{{ route('barang.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Back</a>
+                        <a href="{{ route('barang.index') }}" type="submit" class="btn btn-dark btn-lg mt-3" style="background-color:#8C5630"><i class="bi-arrow-left-circle me-2"></i> Back</a>
                     </div>
                 </div>
             </div>

@@ -25,9 +25,9 @@
                     <li class="list-inline-item">
                         <div class="dropdown">
                             <button class="btn btn-dark dropdown-toggle" type="button" style="background-color:#8C5630 " id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown button
+                              Manajemen Stok
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="dropdownMenuButton1">
                               {{-- <li><a class="dropdown-item" href="{{ route('barang.create') }}"><i class="bi bi-box-fill"></i>Input Barang</a></li> --}}
                               <li><a class="dropdown-item" href="{{route('barangmasuk.create')}}"><i class="bi bi-bag-plus-fill"></i>Tambah Stok Barang</a></li>
                               <li><a class="dropdown-item" href="{{route('barangkeluar.create')}}"><i class="bi bi-bag-dash-fill"></i>Kurang Stok Barang</a></li>
