@@ -21,7 +21,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet">
+    {{-- <link href="/style.css" rel="stylesheet"> --}}
     <link rel="stylesheet" type="text/css" href="login.css">
 	<link rel="stylesheet" href="template.css">
 
@@ -31,7 +31,7 @@
 <body>
     <div id="app">
             @include('layouts.navbar')
-            @yield('content')
+            {{-- @yield('content') --}}
             @vite('resources/js/app.js')
             @include('sweetalert::alert')
             @stack('scripts')
