@@ -132,13 +132,5 @@
     </div>
 <!-- Navbar End -->
 <div id="sidebar-nav" class="sidebar" style="width: 260px; height: 100%; float: left; background-color: #C79A56; position: fixed; left: 0;  padding-top: 130px;">
-    <div class="sidebar-scroll">
-        <nav>
-            <ul class="nav">
-                <li><a href="{{ route('home') }}" class="active"><i class="lnr lnr-home" ></i> <span>Dashboard</span></a></li>
-                <li><a href="{{ route('barang.index') }}" class=""><i class="lnr lnr-code"></i> <span>Barang</span></a></li>
-                <li><a href="{{ route('barangmasuk.index') }}" class=""><i class="lnr lnr-chart-bars"></i> <span>History</span></a></li>
-            </ul>
-        </nav>
-    </div>
+    
 </div>
