@@ -4,9 +4,9 @@
             <form action="{{route('barangkeluar.store')}}" method="POST" >
                 @csrf
                 <div class="row justify-content-center">
-                    <div class="p-5 bg-light rounded-3 border col-xl-6">
+                    <div class="p-5 rounded-3 border col-xl-6" style="background-color: #C79A56" >
                         <div class="mb-3 text-center">
-                            <i class="bi bi-bag-dash-fill fs-1"></i>
+                            <i class="bi bi-bag-dash-fill" style="font-size: 6rem" ></i>
                             <h4>KURANG STOK</h4>
                         </div>
                         <hr>
@@ -43,10 +43,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-6 d-grid">
-                                <a href="{{ route('barang.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Cancel</a>
+                                <a href="{{ route('barang.index') }}" class="btn btn-light btn-lg mt-3"><i class="bi-arrow-left-circle me-2"></i> Cancel</a>
                             </div>
                             <div class="col-md-6 d-grid">
-                                <button type="submit" class="btn btn-dark btn-lg mt-3"><i class="bi-check-circle me-2"></i> Save</button>
+                                <button type="submit" class="btn btn-dark btn-lg mt-3" style="background-color:#8C5630"><i class="bi-check-circle me-2"></i> Save</button>
                             </div>
                         </div>
                     </div>
