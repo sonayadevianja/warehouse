@@ -31,7 +31,7 @@
 								<div class="logo text-center"><img src="{{ Vite::asset('resources/images/1.jpeg') }}" alt="Klorofil Logo" style="width: 50%;"></div>
 								<p class="lead">Login to your account</p>
 							</div>
-							<form class="form-auth-small" action="index.php">
+							<form class="form-auth-small" action="{{ route('login') }}">
 								<div class="form-group">
 									<label for="email" class="control-label sr-only">{{ __('Email Address') }}</label>
                                     <input id="email" placeholder="Name" type="email" class="form-control @error('email') is-invalid @enderror"

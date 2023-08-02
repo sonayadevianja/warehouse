@@ -1,20 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="container mt-4">
+<div class="container mt-4" >
     <div class="row mb-0">
         <div class="col-lg-9 col-xl-10">
             <h4 class="mb-3">{{ $pageTitle }}</h4>
-        </div>
-        <div class="dropdown show">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
         </div>
         <div class="col-lg-3 col-xl-6">
             <ul class="list-inline mb-0 float-end">
@@ -48,6 +37,18 @@
             </ul>
         </div>
     </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+          Action
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </div>
     <hr>
     <div class="table-responsive border p-3 rounded-3">
         <table class="table table-bordered table-hover table-striped mb-0 bg-white datatable" id="BarangKuy">
