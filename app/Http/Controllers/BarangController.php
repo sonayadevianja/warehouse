@@ -87,7 +87,7 @@ class BarangController extends Controller
 
             $barang->save();
 
-            Alert::success('Added Successfully', 'Employee Data Added Successfully.');
+            Alert::success('Added Successfully', 'Barang berhasil ditambahkan');
             return redirect()->route('barang.index');
         }
     /**
@@ -147,7 +147,7 @@ class BarangController extends Controller
         // Update atribut lain sesuai kebutuhan
         // Simpan perubahan ke dalam database
         $barang->save();
-        Alert::success('Changed Successfully', 'Employee Data Changed Successfully.');
+        Alert::success('Changed Successfully', 'Data Barang berhasil dirubah.');
 
         return redirect()->route('barang.index');
     }
@@ -173,7 +173,7 @@ class BarangController extends Controller
         }
             // Hapus entitas dari database
             $barang->delete();
-            Alert::success('Deleted Successfully', 'Employee Data Deleted Successfully.');
+            Alert::success('Deleted Successfully', 'Data Barang Berhasil Dihapus.');
             return redirect()->route('barang.index');
     }
 
@@ -198,7 +198,7 @@ class BarangController extends Controller
     {
         $barang = Barang::find($barangId);
         $encryptedFilename = 'public/files/'.$barang->encrypted_filename;
-        $downloadFilename = Str::lower($barang->nama_barang.'_cv.pdf');
+        $downloadFilename = Str::lower($barang->nama_barang.'.jpg');
 
         if(Storage::exists($encryptedFilename)) {
             return Storage::download($encryptedFilename, $downloadFilename);

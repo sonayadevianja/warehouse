@@ -33,8 +33,8 @@
                         <label for="gambar" class="form-label">Gambar</label>
                         @if ($barang->original_filename)
                             <h5>{{ $barang->original_filename }}</h5>
-                            <a href="{{ route('barang.downloadFile', ['barangId' => $barang->id]) }}" class="btn btn-primary btn-sm mt-2">
-                                <i class="bi bi-download me-1"></i> Download CV
+                            <a href="{{ route('barang.downloadFile', ['barangId' => $barang->id]) }}" class="btn btn-dark btn-sm mt-2" style="background-color:#8C5630">
+                                <i class="bi bi-download me-1"></i> Download Gambar
                             </a>
                         @else
                             <h5>Tidak ada</h5>
