@@ -9,12 +9,30 @@
 
     .active {
         background-color: #8C5630;
-        padding: 10px;
+        /* color: #000; */
+        /* padding: 2px; */
     }
 
     a {
         text-decoration: none;
         /* color: white; */
+    }
+    #BarangKuy tbody tr:hover {
+        background-color: #C8AE7D;
+        cursor: pointer;
+    }
+    #BarangKuy {
+    border-collapse: collapse;
+    }
+
+    #BarangKuy th,
+    #BarangKuy td {
+        border: 1px solid #000000;
+        padding: 8px;
+    }
+    .header-color {
+    background-color: #8C5630; /* Warna latar belakang untuk judul kolom */
+    color: #fbfbfb; /* Warna teks untuk judul kolom */
     }
 
 .overlay {
@@ -118,7 +136,7 @@
                                 <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">History</span> </a>
                             <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="{{ route('History_in.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: white;">History Barang Masuk</span></a>
+                                    <a href="{{ route('History_in.index')  }}" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: white;">History Barang Masuk</span></a>
                                 </li>
                                 <li>
                                     <a href="{{ route('History_out.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: white;">History Barang Keluar</span></a>

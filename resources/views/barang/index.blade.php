@@ -39,17 +39,17 @@
     </div>
     <hr>
     <div class="table-responsive border p-3 rounded-3">
-        <table class="table table-bordered table-hover table-striped mb-0 bg-light datatable" id="BarangKuy">
-            <thead>
+        <table class="display datatable" id="BarangKuy">
+            <thead >
                 <tr>
-                    <th>No</th>
-                    <th>Nama Barang</th>
-                    <th>Tanggal Produksi</th>
-                    <th>Jenis Barang</th>
-                    <th>Stok</th>
-                    <th>Deskripsi</th>
-                    <th>Gambar</th>
-                    <th>Aksi</th>
+                    <th class="header-color">No</th>
+                    <th class="header-color">Nama Barang</th>
+                    <th class="header-color">Tanggal Produksi</th>
+                    <th class="header-color">Jenis Barang</th>
+                    <th class="header-color">Stok</th>
+                    <th class="header-color">Deskripsi</th>
+                    <th class="header-color">Gambar</th>
+                    <th class="header-color">Aksi</th>
                 </tr>
             </thead>
             {{-- <tbody>
