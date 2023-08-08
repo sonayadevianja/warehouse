@@ -184,9 +184,9 @@ class BarangController extends Controller
         if ($request->ajax()) {
             return datatables()->of($barang)
                 ->addIndexColumn()
-                ->addColumn('gambar.original_filename', function ($barang) {
-                    return ' '.$barang->original_filename.' ';
-                   })
+                // ->addColumn('gambar.original_filename', function ($barang) {
+                //     return ' '.$barang->original_filename.' ';
+                //    })
                 ->addColumn('actions', function($barang) {
                      return view('barang.actions', compact('barang'));
                 })
