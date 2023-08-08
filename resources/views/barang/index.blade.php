@@ -48,7 +48,7 @@
                     <th class="header-color">Jenis Barang</th>
                     <th class="header-color">Stok</th>
                     <th class="header-color">Deskripsi</th>
-                    <th class="header-color">Gambar</th>
+                    {{-- <th class="header-color">Gambar</th> --}}
                     <th class="header-color">Aksi</th>
                 </tr>
             </thead>
@@ -84,11 +84,11 @@
                     { data: "jenis.kode", name: "jenis.kode" },
                     { data: "stok", name: "stok" },
                     { data: "deskripsi", name: "deskripsi" },
-                    { data: 'gambar.original_filename', name: 'gambar.original_filename',
-                        render: function( data, type, full, meta ) {
-                            return "<img src=\"" + data + "\" height=\"50\"/>";
-                        }
-                    },
+                    // { data: 'gambar.original_filename', name: 'gambar.original_filename',
+                    //     render: function( data, type, full, meta ) {
+                    //         return "<img src=\"" + data + "\" height=\"50\"/>";
+                    //     }
+                    // },
                     // { data: "encrypted_filename", name: "encrypted_filename" },
                     { data: "actions", name: "actions", orderable: false, searchable: false },
                 ],
