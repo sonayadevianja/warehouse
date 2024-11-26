@@ -8,7 +8,7 @@
             <!-- OVERVIEW -->
             <div class="panel panel-headline">
                 <div class="panel-heading">
-                    <h3 class="panel-title">RIZAL SALSA COLLECTION</h3>
+                    <h3 class="panel-title">RIZAL SALSA COLLECTION bos</h3>
                     <p class="panel-subtitle">Ketintang - Surabaya </p>
                 </div>
                 <div class="panel-body">

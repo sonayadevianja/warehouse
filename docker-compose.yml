@@ -1,0 +1,47 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: warehouse-app
+    container_name: warehouse_app
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+    networks:
+      - laravel
+
+  db:
+    image: mysql:8.0
+    container_name: warehouse_dbdata
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: warehouse
+      MYSQL_USER: warehouseuser
+      MYSQL_PASSWORD: warehousepassword
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - warehouse_laravel
+    ports:
+      - "3306:3306"
+
+  webserver:
+    image: nginx:alpine
+    container_name: warehouse_web
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - waehouse_laravel
+
+networks:
+  laravel:
+
+volumes:
+  dbdata:

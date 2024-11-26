@@ -14,11 +14,11 @@
     "vite": "^4.4.6"
   },
   "dependencies": {
-    "autoprefixer": "^9.8.8",
+    "autoprefixer": "^10.4.20",
     "bootstrap-icons": "^1.10.5",
     "datatables.net-bs5": "^1.13.5",
     "datatables.net-buttons-bs5": "^2.4.1",
-    "postcss": "^7.0.39"
+    "postcss": "^8.4.49"
   },
   "name": "bismillahtubes",
   "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>",
