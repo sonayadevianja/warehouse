@@ -9,7 +9,7 @@
             <div class="panel panel-headline">
                 <div class="panel-heading">
                     <h3 class="panel-title">RIZAL SALSA COLLECTION bos ketintang ptt</h3>
-                    <p class="panel-subtitle">Ketintang - Surabaya Selatan</p>
+                    <p class="panel-subtitle">Ketintang PTT Gang 3 - Surabaya Selatan</p>
                 </div>
                 <div class="panel-body">
                     <div class="row">
