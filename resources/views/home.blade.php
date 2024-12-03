@@ -22,7 +22,7 @@
                             <div class="weekly-summary">
                                 <span class="number" style="font-size: 22px;">Rizal Salsa Collection adalah UMKM yang menyediakan berbagai layanan dan jasa untuk penjahitan yang
                                     berhubungan dengan produk kain seperti pemesanan khusus dari hotel serta pemesanan dari pelanggan tetap untuk memproduksi
-                                    produk berupa Sprei, Bed Cover, Mukenah, Sajadah</span>
+                                    produk berupa Sprei, Bed Cover, Mukenah</span>
                             </div>
                         </div>
                     </div>
