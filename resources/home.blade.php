@@ -15,7 +15,7 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1>Welcome To Rizal Salsa Collection Company Website</h1>
+            <h1>Welcome To Rizal Salsa Collection Company Website Inti</h1>
             <a href="{{ route('barang.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i class="bi bi-rocket-takeoff"></i> Mashook</a>
         </div>
     </div>
