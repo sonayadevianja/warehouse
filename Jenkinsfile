@@ -22,7 +22,7 @@ pipeline {
                 echo 'Performing Git checkout...'
                 script {
                     try {
-                        git 'https://github.com/username/repository.git' // Sesuaikan dengan repositori Anda
+                        git 'https://github.com/sonayadevianja/warehouse.git' // Sesuaikan dengan repositori Anda
                         echo 'Git checkout successful!'
                     } catch (Exception e) {
                         error "Git checkout failed: ${e.message}"
