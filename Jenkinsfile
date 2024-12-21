@@ -1,121 +1,57 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_IMAGE_NAME = 'laravel_app'
-        DOCKER_REGISTRY = 'docker.io/sonayadevi' // Sesuaikan dengan registry DockerHub Anda
-        KUBERNETES_SERVER = 'k8s.example.com' // Sesuaikan dengan server Kubernetes Anda
-        ANSIBLE_SERVER = 'ansible-server.example.com' // Sesuaikan dengan server Ansible Anda
-        COMPOSE_FILE = 'docker-compose.yml' // Nama file docker-compose Anda
-    }
-
     stages {
-        stage('Declarative: Checkout SCM') {
+        stage('Git checkout') {
             steps {
-                echo 'Checking out the repository using SCM...'
+                echo "Checking out the code from SCM"
                 checkout scm
+                sleep 1
             }
         }
 
-        stage('Git Checkout') {
+        stage('Sending Dockerfile to Ansible server') {
             steps {
-                echo 'Performing Git checkout...'
-                script {
-                    try {
-                        git 'https://github.com/sonayadevianja/warehouse.git' // Sesuaikan dengan repositori Anda
-                        echo 'Git checkout successful!'
-                    } catch (Exception e) {
-                        error "Git checkout failed: ${e.message}"
-                    }
-                }
+                echo "Sending Dockerfile to the Ansible server"
+                sleep 1
             }
         }
 
-        stage('Sending Dockerfile to Ansible Server') {
+        stage('Docker build image') {
             steps {
-                echo 'Sending Dockerfile to Ansible server...'
-                script {
-                    try {
-                        sh 'scp Dockerfile user@${ANSIBLE_SERVER}:/path/to/dockerfile/destination'
-                        echo 'Dockerfile sent to Ansible server successfully!'
-                    } catch (Exception e) {
-                        error "Failed to send Dockerfile to Ansible server: ${e.message}"
-                    }
-                }
+                echo "Building Docker image"
+                sleep 2
             }
         }
 
-        stage('Docker Build Image') {
+        stage('Push docker images to DockerHub') {
             steps {
-                echo 'Building Docker image...'
-                script {
-                    try {
-                        sh 'docker build -t ${DOCKER_IMAGE_NAME} .'
-                        echo 'Docker image built successfully!'
-                    } catch (Exception e) {
-                        error "Failed to build Docker image: ${e.message}"
-                    }
-                }
+                echo "Pushing Docker image to DockerHub"
+                sleep 2
             }
         }
 
-        stage('Push Docker Image to DockerHub') {
+        stage('Copy files from Jenkins to Kubernetes server') {
             steps {
-                echo 'Pushing Docker image to DockerHub...'
-                script {
-                    try {
-                        sh '''
-                        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ${DOCKER_REGISTRY}
-                        docker tag ${DOCKER_IMAGE_NAME} ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest
-                        docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest
-                        '''
-                        echo 'Docker image pushed to DockerHub successfully!'
-                    } catch (Exception e) {
-                        error "Failed to push Docker image to DockerHub: ${e.message}"
-                    }
-                }
+                echo "Copying files from Jenkins to the Kubernetes server"
+                sleep 1
             }
         }
 
-        stage('Copy File from Jenkins to Kubernetes Server') {
+        stage('Kubernetes deployment using Ansible') {
             steps {
-                echo 'Copying deployment files to Kubernetes server...'
-                script {
-                    try {
-                        sh 'scp deployment.yaml user@${KUBERNETES_SERVER}:/path/to/deployment'
-                        echo 'Deployment files copied successfully!'
-                    } catch (Exception e) {
-                        error "Failed to copy files to Kubernetes server: ${e.message}"
-                    }
-                }
-            }
-        }
-
-        stage('Kubernetes Deployment using Ansible') {
-            steps {
-                echo 'Deploying application to Kubernetes using Ansible...'
-                script {
-                    try {
-                        sh 'ansible-playbook -i ${KUBERNETES_SERVER}, deploy.yaml'
-                        echo 'Kubernetes deployment completed successfully!'
-                    } catch (Exception e) {
-                        error "Failed to deploy application to Kubernetes using Ansible: ${e.message}"
-                    }
-                }
+                echo "Deploying application to Kubernetes using Ansible"
+                sleep 20
             }
         }
     }
 
     post {
-        always {
-            echo 'Declarative Post Action: Cleaning up workspace...'
-            cleanWs() // Membersihkan workspace setelah pipeline selesai
-        }
         success {
-            echo 'Pipeline completed successfully!'
+            echo "Pipeline executed successfully!"
         }
         failure {
-            echo 'Pipeline failed. Check logs for details.'
+            echo "Pipeline failed!"
         }
     }
 }
