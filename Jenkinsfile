@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_IMAGE_NAME = 'laravel_app'
+        DOCKER_REGISTRY = 'docker.io/sonayadevi' // Sesuaikan dengan registry DockerHub Anda
+        KUBERNETES_SERVER = 'k8s.example.com' // Sesuaikan dengan server Kubernetes Anda
+        ANSIBLE_SERVER = 'ansible-server.example.com' // Sesuaikan dengan server Ansible Anda
+        COMPOSE_FILE = 'docker-compose.yml' // Nama file docker-compose Anda
+    }
+
     stages {
         stage('Git checkout') {
             steps {
