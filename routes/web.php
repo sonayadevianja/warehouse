@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('barangmasuk', BarangMasukController::class);
     Route::resource('barangkeluar', BarangKeluarController::class);
 
-    Route::get('history_barangmasuk', [HistoryController::class,'index'])->name('History_in.index');
-    Route::get('history_barangkeluar', [HistoryController::class,'barangkeluar'])->name('History_out.index');
+    Route::get('history_barangmasuk', [HistoryController::class,'index'])->name('history_in');
+    Route::get('history_barangkeluar', [HistoryController::class,'barangkeluar'])->name('history_out');
 
     Route::get('getBarang', [BarangController::class, 'getData'])->name('barang.getData');
 

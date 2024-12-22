@@ -16,9 +16,10 @@ class HistoryController extends Controller
 {
     public function index()
     {
-        $pageTitle = 'List History Barang Masuk';
-        return view('barang.history_in', compact('pageTitle'));
+        $pageTitle = 'History Telur Masuk';
+        $barangmasuk = barangmasuk::with('barang')->get();
 
+        return view('barang.history_in', compact('barangmasuk', 'pageTitle'));
     }
 
     public function MasukJson(Request $request){
@@ -33,8 +34,9 @@ class HistoryController extends Controller
 
     public function barangkeluar()
     {
-        $pageTitle = 'List History Barang Keluar';
-        return view('barang.history_out', compact('pageTitle'));
+        $pageTitle = 'History Telur Keluar';
+        $barangkeluar = barangkeluar::with('barang')->get();
+        return view('barang.history_out', compact('pageTitle', 'barangkeluar'));
 
     }
 

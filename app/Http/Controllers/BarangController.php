@@ -25,11 +25,12 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Barang List';
+        $pageTitle = 'Manajemen Produksi Telur';
+        $barangs = Barang::with('jenis')->get(); // Ambil data barang dengan relasi jenis
         confirmDelete();
-        return view('barang.index', compact('pageTitle'));
-
+        return view('barang.index', compact('pageTitle', 'barangs')); // Kirimkan variabel ke view
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -138,7 +139,7 @@ class BarangController extends Controller
         // Simpan perubahan data ke dalam model BELUM VALID
         $barang = Barang::find($id);
         $barang->nama_barang = $request->nama_barang;
-        $barang->jenis_id = $request->jenis;
+        // $barang->jenis_id = $request->jenis;
         $barang->deskripsi = $request->deskripsi;
         if ($file != null) {
             $barang->original_filename = $originalFilename;

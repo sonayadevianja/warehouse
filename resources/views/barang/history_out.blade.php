@@ -12,27 +12,23 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Barang</th>
-                    <th>Tanggal keluar</th>
-                    <th>Barang keluar</th>
-                    <th>Stok saat ini</th>
+                    <th>Jenis Ayam</th>
+                    <th>Kandang</th>
+                    <th>Tanggal Keluar</th>
+                    <th>Jumlah Keluar</th>
                 </tr>
             </thead>
-            {{-- <tbody>
-                @foreach ($barangs as $barang)
+            <tbody>
+                @foreach ($barangkeluar as $bm)
                     <tr>
-                        <td>{{ $barang->nama_barang }}</td>
-                        <td>{{ $barang->tanggal_produksi }}</td>
-                        <td>{{ $barang->jenis->jenis }}</td>
-                        <td>{{ $barang->tanggal_keluar }}</td>
-                        <td>{{ $barang->tanggal_masuk }}</td>
-                        <td>{{ $barang->jumlah}}</td>
-                        <td>{{ $barang->keterangan }}</td>
-                        <td>{{ $barang->gambar }}</td>
-                        <td>@include('barang.action')</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $bm->barang->nama_barang }}</td>
+                        <td>{{ $bm->barang->jenis->jenis }}</td>
+                        <td>{{ $bm->tanggal_keluar }}</td>
+                        <td>{{ $bm->amount }}</td>
                     </tr>
                 @endforeach
-            </tbody> --}}
+            </tbody>
         </table>
     </div>
 @endsection

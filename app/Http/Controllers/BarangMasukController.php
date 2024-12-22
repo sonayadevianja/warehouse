@@ -20,8 +20,11 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-        //
+        // $barangmasuk = Barang::with('barangmasuk')->get();
+
+        // return view('barang.history_in', compact('barang'));
     }
+
 
     /**
      * Show the form for creating a new resource.
