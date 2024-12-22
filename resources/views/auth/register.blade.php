@@ -2,7 +2,7 @@
 <html lang="en" class="fullscreen-bg">
 
 <head>
-	<title>Rizal Salsa Collection</title>
+	<title>Jatinom Poultry Blitar</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -30,7 +30,7 @@
                             <form class="card-body cardbody-color p-lg-5"  method="POST" action="{{ route('register') }}">
                                 @csrf
 							<div class="header">
-								<div class="logo text-center"><img src="{{ Vite::asset('resources/images/1.jpeg') }}" alt="Klorofil Logo" style="width: 50%; margin-top:-40px;"></div>
+								  {{--<div class="logo text-center"><img src="{{ Vite::asset('resources/images/1.jpeg') }}" alt="Klorofil Logo" style="width: 50%; margin-top:-40px;"></div>--}}
 								<p class="lead">Register Your Account</p>
 							</div>
 

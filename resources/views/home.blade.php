@@ -10,7 +10,7 @@
                     <div class="panel panel-headline">
                         <div class="panel-heading">
                             <h3 class="panel-title">Sistem Informasi Pencatatan Peternakan Telur</h3>
-                            <p class="panel-subtitle">Desa XYZ - Blitar</p>
+                            <p class="panel-subtitle">Jatinom Poultry - Blitar</p>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -21,8 +21,8 @@
                         </div> --}}
                                 <div class="col-md-12">
                                     <div class="weekly-summary">
-                                        <span class="number" style="font-size: 22px;">PT ABC adalah UMKM yang memproduksi
-                                            ayam petelur lebih dari 5 tahun</span>
+                                        <span class="number" style="font-size: 22px;">Peternakan Jatinom adalah peternakan ayam petelur yang memproduksi
+                                            telur lebih dari 20 tahun</span>
                                     </div>
                                 </div>
                             </div>
