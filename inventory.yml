@@ -1,0 +1,6 @@
+all:
+  hosts:
+    laravel_server:
+      ansible_host: localhost
+      ansible_user: root
+      ansible_ssh_port: 22  # Port SSH standar untuk koneksi

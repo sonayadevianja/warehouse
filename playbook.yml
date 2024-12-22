@@ -1,0 +1,17 @@
+---
+- name: Manage Docker containers
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Pull a Docker image
+      community.docker.docker_image:
+        name: nginx
+        source: pull
+
+    - name: Run a Docker container
+      community.docker.docker_container:
+        name: nginx-container
+        image: nginx
+        state: started
+        ports:
+          - "8081:80"
