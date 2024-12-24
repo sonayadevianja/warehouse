@@ -40,17 +40,23 @@ services:
     networks:
       - laravel
 
-  ansible:
-    image: quay.io/ansible/ansible-runner:latest  # Menambahkan kontainer Ansible
-    container_name: ansible_container
-    volumes:
-      - .:/workspace  # Direktori proyek untuk playbook Ansible
-    networks:
-      - laravel
-    entrypoint: ["tail", "-f", "/dev/null"]  # Menjaga kontainer tetap berjalan
-    restart: unless-stopped
+#   ansible:
+#     image: quay.io/ansible/ansible-runner:latest  # Menambahkan kontainer Ansible
+#     container_name: ansible_container
+#     volumes:
+#       - .:/workspace  # Direktori proyek untuk playbook Ansible
+#     networks:
+#       - laravel
+#     entrypoint: ["tail", "-f", "/dev/null"]  # Menjaga kontainer tetap berjalan
+#     restart: unless-stopped
 
-
+#   nginx-container:
+#     image: nginx  # Ganti jika Anda ingin menjalankan Nginx
+#     container_name: nginx-container
+#     ports:
+#       - "8081:80"
+#     networks:
+#       - laravel
 
 networks:
   laravel:
