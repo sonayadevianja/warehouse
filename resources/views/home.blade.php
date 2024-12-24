@@ -14,23 +14,21 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                {{-- <div class="col-md-9">
-                            <div>
-                                <img src="{{ asset('img/1.jpg') }}" style="width: 100%;">
-                            </div>
-                        </div> --}}
                                 <div class="col-md-12">
                                     <div class="weekly-summary">
-                                        <span class="number" style="font-size: 22px;">Peternakan Jatinom adalah peternakan ayam petelur yang bergerak
-                                            lebih dari 20 tahun dan turut mendukung ketahanan pangan Indonesia</span>
+                                        <span class="number" style="font-size: 22px;">
+                                            Peternakan Jatinom adalah peternakan ayam petelur yang bergerak lebih dari 20 tahun
+                                            dan turut mendukung ketahanan pangan Indonesia
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card Section -->
                 <div class="container py-0">
-                    <!-- Card Section -->
                     <div class="row mb-4">
                         <div class="col-md-4 mb-3">
                             <div class="card text-center shadow-sm">
@@ -79,34 +77,35 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
-        @push('scripts')
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                const jenisLabels = @json($stokPerJenis->pluck('jenis'));
-                const jenisData = @json($stokPerJenis->pluck('total_stok'));
+    </section>
 
-                const jenisChart = new Chart(document.getElementById('jenisChart'), {
-                    type: 'bar',
-                    data: {
-                        labels: jenisLabels,
-                        datasets: [{
-                            label: 'Jumlah Stok',
-                            data: jenisData,
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
-                        }]
-                    }
-                });
+    @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const jenisLabels = @json($stokPerJenis->pluck('jenis'));
+            const jenisData = @json($stokPerJenis->pluck('total_stok'));
 
-                // chart taggal
-                const tanggalLabels = @json($stokPerTanggal->pluck('tanggal_masuk'));
-                const tanggalData = @json($stokPerTanggal->pluck('total_amount'));
+            const jenisChart = new Chart(document.getElementById('jenisChart'), {
+                type: 'bar',
+                data: {
+                    labels: jenisLabels,
+                    datasets: [{
+                        label: 'Jumlah Stok',
+                        data: jenisData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
 
-                const tanggalChart = new Chart(document.getElementById('tanggalChart'), {
+            // Chart tanggal
+            const tanggalLabels = @json($stokPerTanggal->pluck('tanggal_masuk'));
+            const tanggalData = @json($stokPerTanggal->pluck('total_amount'));
+
+            const tanggalChart = new Chart(document.getElementById('tanggalChart'), {
                 type: 'line',
                 data: {
                     labels: tanggalLabels, // Tanggal masuk
@@ -137,7 +136,7 @@
                         }
                     }
                 }
-                });
-            </script>
-        @endpush
-    @endsection
+            });
+        </script>
+    @endpush
+@endsection
