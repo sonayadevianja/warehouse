@@ -31,7 +31,7 @@
                                     {{--<div class="logo text-center"><img
                                               src="{{ Vite::asset('resources/images/1.jpeg') }}"
                                             style="width: 50%;"></div>--}}
-                                    <p class="lead">Login to your account</p>
+                                    <p class="lead">Login to your account kak</p>
                                 </div>
                                 <form class="form-auth-small" action="{{ route('login') }}">
                                     <div class="form-group">
