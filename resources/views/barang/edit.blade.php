@@ -6,7 +6,7 @@
     <!-- Form -->
     <div class="container-sm p-5">
         <div class="mb-3">
-            <h4>FORM EDIT BARANG</h4>
+            <h4>Edit Data Peternakan</h4>
         </div>
         <form action="{{ route('barang.update', $barang->id ?? 'id not found') }}" method="POST"
             enctype="multipart/form-data">

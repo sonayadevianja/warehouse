@@ -24,16 +24,13 @@
                     </li>
                     <li class="list-inline-item">
                         <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" style="background-color:#8C5630 "
-                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-dark dropdown-toggle" type="button" style="background-color:#8C5630"
+                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Manajemen Stok
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-white" aria-labelledby="dropdownMenuButton1">
-                                {{-- <li><a class="dropdown-item" href="{{ route('barang.create') }}"><i class="bi bi-box-fill"></i>Input Barang</a></li> --}}
-                                <li><a class="dropdown-item" href="{{ route('barangmasuk.create') }}"><i
-                                            class="bi bi-bag-plus-fill"></i>Stok Telur Masuk</a></li>
-                                <li><a class="dropdown-item" href="{{ route('barangkeluar.create') }}"><i
-                                            class="bi bi-bag-dash-fill"></i>Stok Telur Keluar</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="{{ route('barangmasuk.create') }}"><i class="bi bi-bag-plus-fill"></i>Stok Telur Masuk Gudang</a></li>
+                                <li><a class="dropdown-item" href="{{ route('barangkeluar.create') }}"><i class="bi bi-bag-dash-fill"></i>Stok Telur Keluar Gudang</a></li>
                             </ul>
                         </div>
                     </li>
@@ -51,7 +48,6 @@
                         <th class="header-color">Kandang</th>
                         <th class="header-color">Stok</th>
                         <th class="header-color">Deskripsi</th>
-                        {{-- <th class="header-color">Gambar</th> --}}
                         <th class="header-color">Aksi</th>
                     </tr>
                 </thead>
@@ -64,88 +60,36 @@
                             <td>{{ $barang->jenis->jenis }}</td>
                             <td>{{ $barang->stok }}</td>
                             <td>{{ $barang->deskripsi }}</td>
-                            {{-- <td>{{ $barang->gambar }}</td> --}}
                             <td>@include('barang.actions')</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-    @endsection
-    @push('scripts')
-        <script type="module">
-            $(document).ready(function() {
-                $("#BarangKuy").DataTable({
-                    serverSide: true,
-                    processing: true,
-                    ajax: "/getBarang",
-                    columns: [{
-                            data: "DT_RowIndex",
-                            name: "DT_RowIndex",
-                            orderable: false,
-                            searchable: false
-                        },
-                        {
-                            data: "nama_barang",
-                            name: "nama_barang"
-                        },
-                        {
-                            data: "tanggal_produksi",
-                            name: "tanggal_produksi"
-                        },
-                        {
-                            data: "jenis.kode",
-                            name: "jenis.kode"
-                        },
-                        {
-                            data: "stok",
-                            name: "stok"
-                        },
-                        {
-                            data: "deskripsi",
-                            name: "deskripsi"
-                        },
-                        // { data: 'gambar.original_filename', name: 'gambar.original_filename',
-                        //     render: function( data, type, full, meta ) {
-                        //         return "<img src=\"" + data + "\" height=\"50\"/>";
-                        //     }
-                        // },
-                        // { data: "encrypted_filename", name: "encrypted_filename" },
-                        {
-                            data: "actions",
-                            name: "actions",
-                            orderable: false,
-                            searchable: false
-                        },
-                    ],
-                    order: [
-                        [0, "desc"]
-                    ],
-                    lengthMenu: [
-                        [10, 25, 50, 100, -1],
-                        [10, 25, 50, 100, "All"],
-                    ],
-                });
+    </div>
+@endsection
 
-                $(".datatable").on("click", ".btn-delete", function(e) {
-                    e.preventDefault();
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Menangani klik pada tombol dropdown
+            var dropdownToggle = document.querySelector('.dropdown-toggle');
+            var dropdownMenu = dropdownToggle.nextElementSibling;
 
-                    var form = $(this).closest("form");
-                    var name = $(this).data("name");
-
-                    Swal.fire({
-                        title: "Are you sure want to delete\n" + name + "?",
-                        text: "You won't be able to revert this!",
-                        icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonClass: "bg-primary",
-                        confirmButtonText: "Yes, delete it!",
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
-                });
+            // Menambahkan event listener untuk toggle visibility dropdown
+            dropdownToggle.addEventListener('click', function (e) {
+                e.preventDefault(); // Mencegah aksi default (bisa ditambahkan jika perlu)
+                dropdownMenu.classList.toggle('show'); // Toggle class 'show' untuk visibilitas menu
             });
-        </script>
-    @endpush
+
+            // Menutup dropdown jika klik di luar dropdown
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.dropdown')) {
+                    // Menghapus class 'show' jika klik di luar dropdown
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+@endpush

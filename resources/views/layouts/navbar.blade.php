@@ -129,10 +129,10 @@
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color: #C79A56">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/"
+                    {{--<a href="/"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                         <img style="width: 120px; height: 80px;" src="{{ asset('img/nav.png') }}" alt="">
-                    </a>
+                    </a>--}}
                     <ul class="nav mb-sm-auto mb-0 align-items-smstart" id="menu">
                         <li class="{{ Route::is('home') ? 'active' : '' }}">
                             <a href="{{ route('home') }}" style="color: white;">
@@ -142,7 +142,7 @@
                         <li class="{{ Route::is('barang.index') ? 'active' : '' }}">
                             <a href="{{ route('barang.index') }}" style="color: white;">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">List
-                                    Barang</span></a>
+                                    Kandang</span></a>
                         </li>
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle"
@@ -155,13 +155,13 @@
                                     <a href="{{ route('history_in') }}" class="nav-link px-0"> <span
                                             class="d-none d-sm-inline {{ Route::is('history_in') ? 'active' : '' }}"
                                             style="color: white;">
-                                            History Barang Masuk</span></a>
+                                            History Telur Masuk Gudang</span></a>
                                 </li>
                                 <li>
                                     <a href="{{ route('history_out') }}" class="nav-link px-0"> <span
                                             class="d-none d-sm-inline {{ Route::is('history_out') ? 'active' : '' }}"
-                                            style="color: white;">History Barang
-                                            Keluar</span></a>
+                                            style="color: white;">History Telur
+                                            Keluar Gudang</span></a>
                                 </li>
                             </ul>
                         </li>

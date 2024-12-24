@@ -50,8 +50,8 @@
                             name: "barang.nama_barang"
                         },
                         {
-                            data: "barang.jenis.jenis",
-                            name: "barang.jenis.jenis"
+                            data: "barang.jenis_id",
+                            name: "barang.jenis_id"
                         },
                         {
                             data: "tanggal_masuk",

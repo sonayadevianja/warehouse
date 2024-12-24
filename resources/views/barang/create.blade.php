@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-sm p-5">
         <div class="mb-3">
-            <h4>Input Data Ternak Telur</h4>
+            <h4>Input Data Peternakan</h4>
         </div>
         <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

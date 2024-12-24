@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-sm p-5">
         <div class="mb-3">
-            <h4>Detail Barang</h4>
+            <h4>Detail Peternakan</h4>
         </div>
         <div class="row justify-content-center">
             <div class="p-5 rounded-3 col-xl-12 border" style="background-color: #C79A56">

@@ -45,7 +45,7 @@
                     { data: "barang.jenis_id", name: "barang.jenis_id" },
                     { data: "tanggal_keluar", name: "tanggal_keluar" },
                     { data: "amount", name: "amount" },
-                    { data: "barang.stok", name: "barang.stok" },
+                    // { data: "barang.stok", name: "barang.stok" },
                 ],
                 order: [[0, "desc"]],
                 lengthMenu: [
