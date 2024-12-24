@@ -142,7 +142,7 @@
                         <li class="{{ Route::is('barang.index') ? 'active' : '' }}">
                             <a href="{{ route('barang.index') }}" style="color: white;">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">List
-                                    Kandang</span></a>
+                                    Kandang Ayam</span></a>
                         </li>
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle"
