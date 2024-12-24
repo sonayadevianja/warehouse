@@ -42,9 +42,10 @@
                 columns: [
                     { data: "DT_RowIndex", name: "DT_RowIndex", orderable: false, searchable: false },
                     { data: "barang.nama_barang", name: "barang.nama_barang" },
+                    { data: "barang.jenis_id", name: "barang.jenis_id" },
                     { data: "tanggal_keluar", name: "tanggal_keluar" },
                     { data: "amount", name: "amount" },
-                    { data: "barang.stok", name: "barang.stok" },
+                    // { data: "barang.stok", name: "barang.stok" },
                 ],
                 order: [[0, "desc"]],
                 lengthMenu: [

@@ -40,6 +40,16 @@ services:
     networks:
       - laravel
 
+  ansible:
+    image: quay.io/ansible/ansible-runner:latest  # Menambahkan kontainer Ansible
+    container_name: ansible_container
+    volumes:
+      - .:/workspace  # Direktori proyek untuk playbook Ansible
+    networks:
+      - laravel
+    entrypoint: ["tail", "-f", "/dev/null"]  # Menjaga kontainer tetap berjalan
+    restart: unless-stopped
+
 
 
 networks:

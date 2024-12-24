@@ -9,7 +9,7 @@
                     <!-- OVERVIEW -->
                     <div class="panel panel-headline">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Sistem Informasi Pencatatan Peternakan Telur</h3>
+                            <h3 class="panel-title">Sistem Informasi Pencatatan Telur Jatinom Poultry</h3>
                             <p class="panel-subtitle">Jatinom Poultry - Blitar</p>
                         </div>
                         <div class="panel-body">
@@ -21,8 +21,8 @@
                         </div> --}}
                                 <div class="col-md-12">
                                     <div class="weekly-summary">
-                                        <span class="number" style="font-size: 22px;">Peternakan Jatinom adalah peternakan ayam petelur yang memproduksi
-                                            telur lebih dari 20 tahun</span>
+                                        <span class="number" style="font-size: 22px;">Peternakan Jatinom adalah peternakan ayam petelur yang bergerak
+                                            lebih dari 20 tahun dan turut mendukung ketahanan pangan Indonesia</span>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="card text-center shadow-sm">
                                 <div class="card-body">
-                                    <h5 class="card-title">Jumlah Telur Masuk</h5>
+                                    <h5 class="card-title">Jumlah Telur Masuk Gudang</h5>
                                     <p class="display-4 text-success">{{ $totalBarangMasuk }}</p>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="card text-center shadow-sm">
                                 <div class="card-body">
-                                    <h5 class="card-title">Jumlah Telur Keluar</h5>
+                                    <h5 class="card-title">Jumlah Telur Keluar Gudang</h5>
                                     <p class="display-4 text-danger">{{ $totalBarangKeluar }}</p>
                                 </div>
                             </div>

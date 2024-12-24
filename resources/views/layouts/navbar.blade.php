@@ -142,7 +142,7 @@
                         <li class="{{ Route::is('barang.index') ? 'active' : '' }}">
                             <a href="{{ route('barang.index') }}" style="color: white;">
                                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">List
-                                    Barang</span></a>
+                                    Kandang</span></a>
                         </li>
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle"
@@ -155,13 +155,13 @@
                                     <a href="{{ route('history_in') }}" class="nav-link px-0"> <span
                                             class="d-none d-sm-inline {{ Route::is('history_in') ? 'active' : '' }}"
                                             style="color: white;">
-                                            History Barang Masuk</span></a>
+                                            History Telur Masuk Gudang</span></a>
                                 </li>
                                 <li>
                                     <a href="{{ route('history_out') }}" class="nav-link px-0"> <span
                                             class="d-none d-sm-inline {{ Route::is('history_out') ? 'active' : '' }}"
-                                            style="color: white;">History Barang
-                                            Keluar</span></a>
+                                            style="color: white;">History Telur
+                                            Keluar Gudang</span></a>
                                 </li>
                             </ul>
                         </li>

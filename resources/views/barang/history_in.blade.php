@@ -50,6 +50,10 @@
                             name: "barang.nama_barang"
                         },
                         {
+                            data: "barang.jenis_id",
+                            name: "barang.jenis_id"
+                        },
+                        {
                             data: "tanggal_masuk",
                             name: "tanggal_masuk"
                         },
@@ -57,10 +61,10 @@
                             data: "amount",
                             name: "amount"
                         },
-                        {
-                            data: "barang.stok",
-                            name: "barang.stok"
-                        },
+                        // {
+                        //     data: "barang.stok",
+                        //     name: "barang.stok"
+                        // },
                     ],
                     order: [
                         [0, "desc"]

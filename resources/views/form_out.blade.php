@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-sm p-5">
         <div class="mb-3">
-            <h4>STOK KELUAR TELUR PRODUKSI</h4>
+            <h4>TELUR KELUAR DARI STOK GUDANG</h4>
         </div>
         <form action="{{ route('barangkeluar.store') }}" method="POST">
             @csrf

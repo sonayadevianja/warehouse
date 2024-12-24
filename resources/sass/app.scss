@@ -12,3 +12,12 @@
 // DataTables
 @import "datatables.net-bs5/css/dataTables.bootstrap5.css";
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.css";
+
+/* Menampilkan dropdown ketika kelas 'show' ditambahkan */
+.dropdown-menu {
+    display: none; /* Pastikan menu tidak ditampilkan secara default */
+}
+
+.dropdown-menu.show {
+    display: block; /* Menampilkan dropdown ketika kelas 'show' ditambahkan */
+}
