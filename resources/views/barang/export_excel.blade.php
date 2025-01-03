@@ -4,7 +4,7 @@
             <th>No.</th>
             <th>Nama Barang</th>
             <th>Jenis</th>
-            <th>Tanggal Produksi</th>
+            <th>Tanggal Masuk</th>
             <th>Stok</th>
             <th>Deskripsi</th>
         </tr>
