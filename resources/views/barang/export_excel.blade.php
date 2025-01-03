@@ -6,7 +6,7 @@
             <th>Jenis</th>
             <th>Tanggal Masuk</th>
             <th>Stok</th>
-            <th>Deskripsi (catatan)</th>
+            <th>Deskripsi (catatan/notes)</th>
         </tr>
     </thead>
     <tbody>
