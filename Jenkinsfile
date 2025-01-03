@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 echo "Deploying application using Docker Compose"
-                bat 'docker compose up -d'
+                bat "docker compose up -d"
                 }
             }
         }
