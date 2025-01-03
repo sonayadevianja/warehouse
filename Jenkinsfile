@@ -16,21 +16,6 @@ pipeline {
             }
         }
 
-        stage('Install dependencies') {
-                    steps {
-
-                        echo 'Run npm install'
-                        bat 'npm install'
-
-                        echo 'Run composer install'
-                        bat 'composer install'
-
-                        echo 'Cloning file .env.example ke .env'
-                        bat 'copy .env.example .env'
-
-
-                    }
-                }
 
 
 
