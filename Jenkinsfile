@@ -2,13 +2,11 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = 'laravel_app'
-        DOCKER_REGISTRY = 'sonayadevi' // Sesuaikan dengan nama pengguna DockerHub Anda
-        COMPOSE_FILE = 'docker-compose.yml' // Nama file docker-compose Anda
+     DOCKER_SERVER = 'localhost'
     }
 
     stages {
-        stage('Git Checkout') {
+        stage('Clone Repository') {
             steps {
 
                 echo 'Cloning Repository...'
@@ -18,14 +16,21 @@ pipeline {
             }
         }
 
-        stage('Docker Build Image') {
-            steps {
-                echo "Building Docker image"
-                script {
-                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:latest ."
+        stage('Install dependencies') {
+                    steps {
+
+                        echo 'Run npm install'
+                        bat 'npm install'
+
+                        echo 'Run composer install'
+                        bat 'composer install'
+
+                        echo 'Cloning file .env.example ke .env'
+                        bat 'copy .env.example .env'
+
+
+                    }
                 }
-            }
-        }
 
 
 
