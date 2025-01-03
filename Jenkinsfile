@@ -22,9 +22,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 echo "Deploying application using Docker Compose"
-                script {
-                    sh "docker-compose down"
-                    sh "docker-compose up -d"
+                bat 'docker compose up -d'
                 }
             }
         }
